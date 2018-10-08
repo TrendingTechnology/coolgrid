@@ -1,9 +1,17 @@
 {
   "name": "@mosquito-ui/grid",
   "author": "Vit Bokisch <vit@bokisch.cz>",
-  "version": "0.1.0",
+  "maintainers": [
+    "Vit Bokisch"
+  ],
+  "version": "0.1.1",
   "description": "",
+  "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mosquito-ui/grid"
+  },
   "scripts": {
     "storybook": "start-storybook -p 6006 -c tools/storybook",
     "storybook:build": "build-storybook -c tools/storybook -o .storybook",
@@ -13,6 +21,7 @@
     "prettier": "prettier \"./*.+(js|json|md)\" \"./src/**/*.*\" --write"
   },
   "peerDependencies": {
+    "react": ">= 16.3",
     "styled-components": ">= 3 < 4"
   },
   "devDependencies": {
