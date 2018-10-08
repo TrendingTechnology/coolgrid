@@ -11,5 +11,5 @@ export default styled.div`
     margin: ${gutter === 0 ? (-1 * gap) / 2 : gap / 2}px -${gap / 2}px;
   `};
 
-  ${({ extendCss }) => extendCss && extendCss}};
+  ${({ extendCss }) => extendCss && extendCss};
 `

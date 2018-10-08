@@ -15,5 +15,5 @@ export default styled.div`
 
   ${({ breakpoints }: { breakpoints?: object }) =>
     breakpoints && generateMediaQueries(breakpoints, css)};
-  ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss}};
+  ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `

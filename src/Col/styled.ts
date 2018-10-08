@@ -46,5 +46,5 @@ export default styled.div`
   ${({ breakpoints, columns }: { breakpoints?: object; columns: number }) =>
     breakpoints && generateMediaQueries(breakpoints, css(columns))};
 
-  ${({ extendCss }: { extendCss: string }) => extendCss && extendCss}};
+  ${({ extendCss }: { extendCss: string }) => extendCss && extendCss};
 `
