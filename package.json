@@ -1,0 +1,48 @@
+{
+  "name": "@mosquito-ui/grid",
+  "author": "Vit Bokisch <vit@bokisch.cz>",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 6006 -c tools/storybook",
+    "storybook:build": "build-storybook -c tools/storybook -o .storybook",
+    "lint": "yarn lint:css && yarn lint:ts",
+    "lint:css": "stylelint './src/**/*.ts*'",
+    "lint:ts": "tslint -p ./tsconfig.json \"./src/**/*.ts*\"",
+    "prettier": "prettier \"./*.+(js|json|md)\" \"./src/**/*.*\" --write"
+  },
+  "peerDependencies": {
+    "styled-components": ">= 3 < 4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@storybook/addon-notes": "^4.0.0-alpha.24",
+    "@storybook/addon-storysource": "^4.0.0-alpha.24",
+    "@storybook/addon-viewport": "^4.0.0-alpha.24",
+    "@storybook/addons": "^4.0.0-alpha.24",
+    "@storybook/react": "^4.0.0-alpha.24",
+    "@types/jest": "^23.3.3",
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.8",
+    "@types/storybook__addon-notes": "^3.3.3",
+    "@types/storybook__react": "^3.0.9",
+    "@types/styled-components": "^3.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.0-beta.6",
+    "jest": "^23.6.0",
+    "react": "^16.5.2",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-dom": "^16.5.2",
+    "react-pose": "^3.3.4",
+    "recompose": "^0.30.0",
+    "styled-components": "^3.4.5",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.0",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  }
+}
