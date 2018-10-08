@@ -2,18 +2,14 @@ import styled from 'styled-components'
 import generateMediaQueries from '../utils'
 
 interface CssParams {
-  size?: number;
+  size: number;
   gap?: number;
   padding?: number;
 }
 
-const css = (columns: number): string => ({
-  size,
-  gap,
-  padding,
-}: CssParams) => {
+const css = (columns: number) => ({ size, gap, padding }: CssParams) => {
   let result = ''
-  const width = (size / columns) * 100
+  const width: number = (size / columns) * 100
 
   if (width) {
     result += `
@@ -34,7 +30,13 @@ const css = (columns: number): string => ({
   return result
 }
 
-export default styled.div`
+interface Props {
+  breakpoints: object;
+  columns: number;
+  extendCss?: string;
+}
+
+export default styled.div<Props>`
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -43,8 +45,8 @@ export default styled.div`
   flex-basis: 0;
   flex-grow: 1;
 
-  ${({ breakpoints, columns }: { breakpoints?: object; columns: number }) =>
+  ${({ breakpoints, columns }: { breakpoints: object; columns: number }) =>
     breakpoints && generateMediaQueries(breakpoints, css(columns))};
 
-  ${({ extendCss }: { extendCss: string }) => extendCss && extendCss};
+  ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `

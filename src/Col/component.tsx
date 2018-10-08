@@ -1,25 +1,25 @@
-import * as React from 'react'
-import { Ctx as RowCtx } from '../Row'
+import React from 'react'
+import RowCtx from '../Row/context'
 import Col from './styled'
 import { Props, Context } from './types'
 
 const calculate = (
   attr: string,
   key: string,
-  params?: number,
-  ctx?: number
+  params?: number | object,
+  ctx?: number | object
 ): object => {
   const result = {}
 
-  if (params && Number.isInteger(params)) {
-    result[attr] = params
-  } else if (
+  if (
     params &&
     typeof params === 'object' &&
     Object.keys(params).includes(key)
   ) {
     result[attr] = params[key]
-  } else if (ctx && Number.isInteger(ctx[attr])) {
+  } else if (params) {
+    result[attr] = params
+  } else if (ctx && Number.isFinite(ctx[attr])) {
     result[attr] = ctx[attr]
   } else if (
     ctx &&
@@ -34,7 +34,7 @@ const calculate = (
 
 const Element = ({ tag, children, size, gap, padding, ...props }: Props) => (
   <RowCtx.Consumer>
-    {({ breakpoints, breakpointKeys, ...ctx }: IContext) => {
+    {({ breakpoints, breakpointKeys, ...ctx }: Context) => {
       const bpProps = Object.assign({}, breakpoints)
       const getPropKeys = () => {
         const breakpointsHelper = Object.entries(breakpoints)
@@ -52,7 +52,7 @@ const Element = ({ tag, children, size, gap, padding, ...props }: Props) => (
               ctx
             ),
             calculate('padding', key, padding, ctx),
-            calculate('gap', key, null, ctx)
+            calculate('gap', key, undefined, ctx)
           )
         }
       }
