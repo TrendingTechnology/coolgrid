@@ -22,7 +22,7 @@ export interface Breakpoints {
 }
 
 export interface Props {
-  children: any;
+  children?: any;
   tag?: string;
   extendCss?: string;
   breakpoints: object;

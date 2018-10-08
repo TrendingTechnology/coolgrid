@@ -1,11 +1,13 @@
-import * as React from 'react'
+import React from 'react'
 import ContainerCtx from './context'
 import Container from './styled'
 import { Props } from './types'
 import defaultProps from './defaultProps'
 
 const Element = ({ tag, children, extendCss, ...props }: Props) => {
-  const Component = tag ? Container.withComponent(tag) : Container
+  // const Component = tag ? Container.withComponent(tag) : Container
+
+  const Component = Container
 
   return (
     <ContainerCtx.Provider
