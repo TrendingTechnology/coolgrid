@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import RowCtx from './context'
 import Row from './styled'
 import { Ctx as ContainerCtx } from '../Container'
@@ -13,7 +13,7 @@ const Element = ({
   gutter,
   ...props
 }: Props) => {
-  const Component = tag ? Row.withComponent(tag) : Row
+  const Component: any = tag ? Row.withComponent(tag) : Row
 
   return (
     <ContainerCtx.Consumer>

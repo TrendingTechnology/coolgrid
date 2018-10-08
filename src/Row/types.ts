@@ -1,6 +1,6 @@
 export interface Props {
   children?: any;
-  tag?: string;
+  tag?: any;
   size?: number | object;
   gap?: number | object;
   columns?: number;
