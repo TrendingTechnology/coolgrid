@@ -16,7 +16,7 @@ const mediaQuery = (viewport: number, data?: string): string => {
 
 const generateMediaQueries = (
   breakpoints: object,
-  css: () => string
+  css: (css: object) => string
 ): string => {
   let result = ''
   const entries = Object.entries(breakpoints)
