@@ -3,10 +3,15 @@ import Container from './Container'
 import Row from './Row'
 import Col from './Col'
 
+const columnCss = `
+  background-color: #e0e0eb;
+  border: 1px solid #b3b3cc;
+`
+
 storiesOf('Bootstrap', module)
   .add('basic grid', () => (
     <React.Fragment>
-      <Container>
+      <Container extendColCss={columnCss}>
         <Row padding={20}>
           <Col xs={12} xl={12}>
             This is an example using custom settings on each element.
@@ -55,6 +60,7 @@ storiesOf('Bootstrap', module)
       </Container>
 
       <Container
+        extendColCss={columnCss}
         padding={20}
         size={{
           xs: 12,
@@ -86,7 +92,7 @@ storiesOf('Bootstrap', module)
     </React.Fragment>
   ))
   .add('custom 5 columns grid', () => (
-    <Container>
+    <Container extendColCss={columnCss}>
       <Row columns={5} gap={25} padding={20}>
         <Col xs={2} lg={1} />
         <Col xs={2} lg={1} />
@@ -97,7 +103,7 @@ storiesOf('Bootstrap', module)
     </Container>
   ))
   .add('complex web layout', () => (
-    <Container>
+    <Container extendColCss={columnCss}>
       <Row gap={20}>
         <Col xs={3}>
           <Row padding={20}>
