@@ -1,7 +1,265 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Col - styled component renders correctly 1`] = `
+exports[`@mosquito-ui/grid/Col renders correctly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+
+@media only screen and (min-width:576px) {
+  .c0 {
+    max-width: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (min-width:778px) {
+  .c0 {
+    max-width: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+}
+
 <div
-  className="sc-bdVaJa iKRmcR"
+  className="c0"
+/>
+`;
+
+exports[`@mosquito-ui/grid/Col renders correctly size + gap and padding with media queries 1`] = `
+.c0 {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: calc(100% - 10px);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: calc(100% - 10px);
+  -ms-flex-preferred-size: calc(100% - 10px);
+  flex-basis: calc(100% - 10px);
+  padding: 10px;
+  margin: 5px;
+}
+
+@media only screen and (min-width:576px) {
+  .c0 {
+    max-width: calc(50% - 20px);
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: calc(50% - 20px);
+    -ms-flex-preferred-size: calc(50% - 20px);
+    flex-basis: calc(50% - 20px);
+    padding: 20px;
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width:778px) {
+  .c0 {
+    max-width: calc(25% - 30px);
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: calc(25% - 30px);
+    -ms-flex-preferred-size: calc(25% - 30px);
+    flex-basis: calc(25% - 30px);
+    padding: 35px;
+    margin: 15px;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`@mosquito-ui/grid/Col renders correctly size with media queries 1`] = `
+.c0 {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+
+@media only screen and (min-width:576px) {
+  .c0 {
+    max-width: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (min-width:778px) {
+  .c0 {
+    max-width: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`@mosquito-ui/grid/Col renders custom styles 1`] = `
+.c0 {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  font-size: 20px;
+  background-color: black;
+}
+
+@media only screen and (min-width:576px) {
+  .c0 {
+    max-width: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (min-width:778px) {
+  .c0 {
+    max-width: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+}
+
+<div
+  className="c0"
 />
 `;

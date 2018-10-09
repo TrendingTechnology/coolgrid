@@ -1,40 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`
-@mosquito-ui/grid/Col
- -- COMPONENT -- renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`
-@mosquito-ui/grid/Col
- -- COMPONENT -- renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`@mosquito-ui/grid/Col -- COMPONENT -- renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`@mosquito-ui/grid/Col ------------------------------ renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`@mosquito-ui/grid/Col styled components ---------------------- renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`Col - component renders correctly 1`] = `
+exports[`@mosquito-ui/grid/Col COMPONENT PROPS component renders correctly 1`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>
