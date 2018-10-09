@@ -24,5 +24,5 @@
   },
   "files": ["src/types.d.ts"],
   "include": ["src/**/*", "tools/**/*"],
-  "exclude": ["node_modules", "build", "scripts"]
+  "exclude": ["node_modules", "lib", "build", "scripts"]
 }

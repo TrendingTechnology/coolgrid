@@ -1,21 +1,19 @@
+import React from 'react'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import 'jest-styled-components'
 
 declare global {
   namespace NodeJS {
     interface Global {
       React: any;
       testFor: any;
-      MSG_RENDERER: any;
+      TEST_COMPONENT: any;
     }
   }
 }
 
-declare var MSG_RENDERER: any
-declare const testFor: any
-
-global.testFor = (component: any, callback: any) =>
-  describe('\r\n' + component.displayName + '\r\n', callback)
-global.MSG_RENDERER = '-- COMPONENT --'
+global.React = React
+global.TEST_COMPONENT = 'COMPONENT PROPS'
 
 Enzyme.configure({ adapter: new Adapter() })
