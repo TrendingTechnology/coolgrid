@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "lib/es6",
+    "outDir": "dist/es6",
     "module": "commonjs",
     "target": "es6",
     "lib": ["esnext", "dom"],
@@ -22,7 +22,17 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
   },
-  "files": ["src/types.d.ts"],
-  "include": ["src/**/*", "tools/**/*"],
-  "exclude": ["node_modules", "lib", "build", "scripts"]
+  "include": ["src/**/*.ts*"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist",
+    "build",
+    "scripts",
+    "tools/*",
+    "src/**/*.stories.*",
+    "src/**/stories.*",
+    "src/**/*.test.*",
+    "src/**/__snapshots__/**/*"
+  ]
 }

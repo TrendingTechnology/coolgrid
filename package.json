@@ -2,17 +2,19 @@
   "name": "@mosquito-ui/grid",
   "author": "Vit Bokisch <vit@bokisch.cz>",
   "maintainers": [
-    "Vit Bokisch"
+    "Vit Bokisch <vit@bokisch.cz>"
   ],
   "version": "0.1.1",
   "description": "",
   "license": "MIT",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/mosquito-ui/grid"
   },
+  "main": "./dist/es6/index.js",
+  "types": "./dist/es6/index.d.ts",
   "scripts": {
+    "build": "rm -rf dist && tsc & tsc -p ./tsconfig.es5.json",
     "storybook": "start-storybook -p 6006 -c tools/storybook",
     "storybook:build": "build-storybook -c tools/storybook -o .storybook",
     "lint": "yarn lint:css && yarn lint:ts",
