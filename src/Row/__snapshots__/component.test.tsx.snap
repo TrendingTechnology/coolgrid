@@ -5,9 +5,3 @@ exports[`@mosquito-ui/grid/Row renders correctly 1`] = `
   <Component />
 </ContextConsumer>
 `;
-
-exports[`Row - component renders correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;

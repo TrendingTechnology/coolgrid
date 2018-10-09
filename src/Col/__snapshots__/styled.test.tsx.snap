@@ -198,7 +198,7 @@ exports[`@mosquito-ui/grid/Col renders correctly size with media queries 1`] = `
 />
 `;
 
-exports[`@mosquito-ui/grid/Col renders custom styles 1`] = `
+exports[`@mosquito-ui/grid/Col renders custom styles - extendCss 1`] = `
 .c0 {
   box-sizing: border-box;
   position: relative;
