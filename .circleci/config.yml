@@ -71,6 +71,6 @@ workflows:
       - cover:
           filters:
             branches:
-              ignore: master
+              only: master
             tags:
               ignore: /^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(\-\w*?\.[1-9]\d*)?$/
