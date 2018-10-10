@@ -25,6 +25,7 @@
     "test": "jest --runInBand",
     "test:coverage": "jest --runInBand --coverage",
     "test:watch": "jest --runInBand --watch",
+    "cover": "coveralls < .coverage/lcov.info",
     "rollup": "rollup -c",
     "pkgs": "rm -rf node_modules/ package-lock.json yarn.lock && yarn",
     "prettier": "prettier \"./*.+(js|json|md)\" \"./src/**/*.*\" --write"
@@ -54,6 +55,7 @@
     "@types/styled-components": "^3.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.0-beta.6",
+    "coveralls": "^3.0.2",
     "cpr": "^3.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
