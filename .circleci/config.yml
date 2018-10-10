@@ -67,8 +67,8 @@ workflows:
   build_and_cover:
     jobs:
       - cover:
-          # filters:
-          #   branches:
-          #     only: master
-          #   tags:
-          #     ignore: /^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(\-\w*?\.[1-9]\d*)?$/
+          filters:
+            branches:
+              ignore: master
+            tags:
+              ignore: /^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(\-\w*?\.[1-9]\d*)?$/
