@@ -25,7 +25,7 @@
     "test": "jest --runInBand",
     "test:coverage": "jest --runInBand --coverage",
     "test:watch": "jest --runInBand --watch",
-    "cover": "coveralls < .coverage/lcov.info",
+    "cover": "coveralls < coverage/lcov.info",
     "rollup": "rollup -c",
     "pkgs": "rm -rf node_modules/ package-lock.json yarn.lock && yarn",
     "prettier": "prettier \"./*.+(js|json|md)\" \"./src/**/*.*\" --write"

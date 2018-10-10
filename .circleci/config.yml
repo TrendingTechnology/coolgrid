@@ -52,6 +52,8 @@ jobs:
 
       - run: yarn build
 
+      - run: yarn test:coverage
+
       - run: yarn cover
 
 workflows:

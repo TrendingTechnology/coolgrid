@@ -6,7 +6,7 @@ module.exports = {
   ],
   preset: 'ts-jest',
   verbose: false,
-  coverageDirectory: './.coverage',
+  coverageDirectory: './coverage',
   testPathIgnorePatterns: ['/lib/', '/node_modules/', '/tools/'],
   testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
