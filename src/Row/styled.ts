@@ -13,9 +13,9 @@ export default styled.div<Props>`
 
   ${({ gap, gutter }: { gap?: number; gutter?: number }) => {
     if (gap) {
-      const marginVertical = gap / 2
-      let marginTop = 0
-      let marginBottom = gap
+      const marginVertical: number = gap / 2
+      let marginTop: number = 0
+      let marginBottom: number = gap
 
       if (gutter === 0) {
         marginTop = -1 * gap
@@ -27,7 +27,12 @@ export default styled.div<Props>`
         marginBottom = gutter
       }
 
-      return `margin-top: ${marginTop}px; margin-left: -${marginVertical}px; margin-right: -${marginVertical}px; margin-bottom: ${marginBottom}px`
+      return `
+        margin-top: ${marginTop}px;
+        margin-left: -${marginVertical}px;
+        margin-right: -${marginVertical}px;
+        margin-bottom: ${marginBottom}px
+      `
     }
   }};
 
