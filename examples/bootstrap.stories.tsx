@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Container from './Container'
-import Row from './Row'
-import Col from './Col'
+import Container from '../src/Container'
+import Row from '../src/Row'
+import Col from '../src/Col'
 
 const columnCss = `
   background-color: #e0e0eb;
