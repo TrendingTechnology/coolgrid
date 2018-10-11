@@ -24,7 +24,8 @@ const css = (columns: number) => ({ size, gap, padding }: CssParams) => {
     result += `padding: ${padding}px;`
   }
   if (gap) {
-    result += `margin: ${gap / 2}px;`
+    result += `margin-left: ${gap / 2}px; margin-right: ${gap /
+      2}px; margin-top: ${gap}px;`
   }
 
   return result
