@@ -14,6 +14,7 @@ export interface Props {
 export interface Context {
   breakpoints: object;
   breakpointKeys: string[];
-  ctx?: object;
   columns: number;
+  extendCss?: string;
+  ctx?: object;
 }
