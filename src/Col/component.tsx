@@ -4,9 +4,14 @@ import Col from './styled'
 import { Props, Context } from './types'
 import { calculateBreakpointOptions } from '../utils'
 
-const Element = ({ tag, children, ...props }: Props) => (
+const Element = ({ tag, children, extendCss, ...props }: Props) => (
   <RowCtx.Consumer>
-    {({ breakpoints, breakpointKeys, extendCss, ...ctx }: Context) => {
+    {({
+      breakpoints,
+      breakpointKeys,
+      extendCss: extendColCss,
+      ...ctx
+    }: Context) => {
       const breakpointOptions = calculateBreakpointOptions(
         breakpointKeys,
         breakpoints,
@@ -18,7 +23,7 @@ const Element = ({ tag, children, ...props }: Props) => (
         <Col
           {...ctx}
           {...props}
-          extendCss={extendCss}
+          extendCss={extendCss || extendColCss}
           breakpoints={breakpointOptions}
         >
           {children}

@@ -1,265 +1,259 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@mosquito-ui/grid/Col renders correctly 1`] = `
-.c0 {
+exports[`mosquito-ui/grid/Col renders correctly 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
   box-sizing: border-box;
   position: relative;
   width: 100%;
   min-height: 1px;
   max-width: 100%;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-}
 
-@media only screen and (min-width:576px) {
-  .c0 {
-    max-width: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
   }
-}
-
-@media only screen and (min-width:778px) {
-  .c0 {
-    max-width: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-  }
-}
-
-<div
-  className="c0"
+  forwardedRef={null}
 />
 `;
 
-exports[`@mosquito-ui/grid/Col renders correctly size + gap and padding with media queries 1`] = `
-.c0 {
+exports[`mosquito-ui/grid/Col renders correctly size + gap and padding with media queries 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "gap": 30,
+        "padding": 35,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "gap": 20,
+        "padding": 20,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "gap": 10,
+        "padding": 10,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "hnZxYr",
+        "rules": Array [
+          "
   box-sizing: border-box;
   position: relative;
   width: 100%;
   min-height: 1px;
   max-width: 100%;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: calc(100% - 10px);
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: calc(100% - 10px);
-  -ms-flex-preferred-size: calc(100% - 10px);
-  flex-basis: calc(100% - 10px);
-  padding: 10px;
-  margin: 5px;
-}
 
-@media only screen and (min-width:576px) {
-  .c0 {
-    max-width: calc(50% - 20px);
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: calc(50% - 20px);
-    -ms-flex-preferred-size: calc(50% - 20px);
-    flex-basis: calc(50% - 20px);
-    padding: 20px;
-    margin: 10px;
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
   }
-}
-
-@media only screen and (min-width:778px) {
-  .c0 {
-    max-width: calc(25% - 30px);
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: calc(25% - 30px);
-    -ms-flex-preferred-size: calc(25% - 30px);
-    flex-basis: calc(25% - 30px);
-    padding: 35px;
-    margin: 15px;
-  }
-}
-
-<div
-  className="c0"
+  forwardedRef={null}
 />
 `;
 
-exports[`@mosquito-ui/grid/Col renders correctly size with media queries 1`] = `
-.c0 {
+exports[`mosquito-ui/grid/Col renders correctly size with media queries 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "gVSGcS",
+        "rules": Array [
+          "
   box-sizing: border-box;
   position: relative;
   width: 100%;
   min-height: 1px;
   max-width: 100%;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-}
 
-@media only screen and (min-width:576px) {
-  .c0 {
-    max-width: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
   }
-}
-
-@media only screen and (min-width:778px) {
-  .c0 {
-    max-width: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-  }
-}
-
-<div
-  className="c0"
+  forwardedRef={null}
 />
 `;
 
-exports[`@mosquito-ui/grid/Col renders custom styles - extendCss 1`] = `
-.c0 {
+exports[`mosquito-ui/grid/Col renders custom styles - extendCss 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  extendCss="font-size: 20px; background-color: black;"
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "hnZxYr",
+        "rules": Array [
+          "
   box-sizing: border-box;
   position: relative;
   width: 100%;
   min-height: 1px;
   max-width: 100%;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 100%;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  font-size: 20px;
-  background-color: black;
-}
 
-@media only screen and (min-width:576px) {
-  .c0 {
-    max-width: 50%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
   }
-}
-
-@media only screen and (min-width:778px) {
-  .c0 {
-    max-width: 25%;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-flex-basis: 25%;
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-  }
-}
-
-<div
-  className="c0"
+  forwardedRef={null}
 />
 `;

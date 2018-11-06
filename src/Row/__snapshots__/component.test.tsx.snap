@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@mosquito-ui/grid/Row renders correctly 1`] = `
+exports[`mosquito-ui/grid/Row renders correctly 1`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>
