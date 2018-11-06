@@ -4,6 +4,8 @@ export interface Props {
   size?: any;
   gap?: any;
   padding?: any;
+  extendCSS?: string;
+  // hack for stories at this moment, should be deleted
   xs?: number | object;
   sm?: number | object;
   md?: number | object;
