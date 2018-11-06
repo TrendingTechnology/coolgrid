@@ -3,7 +3,7 @@
     "outDir": "lib/",
     "module": "es2015",
     "target": "es2018",
-    "lib": ["esnext", "dom"],
+    "lib": ["es2018", "dom"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
