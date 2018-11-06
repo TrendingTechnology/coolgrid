@@ -2,14 +2,14 @@
   "compilerOptions": {
     "outDir": "lib/",
     "module": "es2015",
-    "target": "es6",
+    "target": "es2018",
     "lib": ["esnext", "dom"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "rootDir": "src",
+    "rootDir": "./",
     "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -27,18 +27,19 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true
   },
-  "files": ["src/index.ts"]
-  // "include": ["src/**/*.ts*"],
-  // "exclude": [
-  //   "node_modules",
-  //   "lib",
-  //   "dist",
-  //   "build",
-  //   "scripts",
-  //   "tools/*",
-  //   "src/**/*.stories.*",
-  //   "src/**/stories.*",
-  //   "src/**/*.test.*",
-  //   "src/**/__snapshots__/**/*"
-  // ]
+  "include": ["src/**/*.ts*"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist",
+    "build",
+    "scripts",
+    "tools/*",
+    "src/**/*.stories.*",
+    "src/**/stories.*",
+    "src/**/*.test.*",
+    "src/**/__snapshots__/**/*",
+    "examples/stories.*",
+    "examples/*.stories.*"
+  ]
 }
