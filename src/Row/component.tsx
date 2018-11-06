@@ -3,46 +3,68 @@ import RowCtx from './context'
 import Row from './styled'
 import { Ctx as ContainerCtx } from '../Container'
 import { Props, Context } from './types'
+import { calculateBreakpointOptions } from '../utils'
 
 const Element = ({
-  tag,
   children,
+  tag,
+  columns,
+  size,
   extendCss,
   extendColCss,
-  gap,
-  gutter,
+  extendColProps,
   ...props
 }: Props) => {
-  const Component: any = tag ? Row.withComponent(tag) : Row
-
   return (
     <ContainerCtx.Consumer>
       {({
+        breakpoints,
+        breakpointKeys,
+        columns: ctxColumns,
         extendRowCss,
-        extendColCss: containerExtendColCss,
+        extendRowProps,
+        extendColCss: extendColCssContainerProvider,
+        extendColProps: extendColPropsContainerProvider,
         ...ctx
-      }: Context) => (
-        <RowCtx.Provider
-          value={{
-            ...ctx,
-            ...props,
-            gap,
-            extendCss: extendColCss || containerExtendColCss,
-          }}
-        >
-          <Component
-            gap={gap}
-            gutter={gutter}
+      }: Context) => {
+        const breakpointOptions = calculateBreakpointOptions(
+          breakpointKeys,
+          breakpoints,
+          Object.assign({}, ctx, props),
+          ['gap', 'gutter']
+        )
+
+        return (
+          <Row
+            as={tag}
+            breakpoints={breakpointOptions}
             extendCss={extendCss || extendRowCss}
+            {...extendRowProps}
+            {...props}
           >
-            {children}
-          </Component>
-        </RowCtx.Provider>
-      )}
+            <RowCtx.Provider
+              // pass values to Columns via context
+              value={{
+                ...ctx,
+                breakpointKeys,
+                breakpoints,
+                gap: props.gap,
+                padding: props.padding,
+                columns: columns || ctxColumns,
+                size,
+                extendCss: extendColCss || extendColCssContainerProvider,
+                ...(extendColProps || extendColPropsContainerProvider || {}),
+              }}
+            >
+              {children}
+            </RowCtx.Provider>
+          </Row>
+        )
+      }}
     </ContainerCtx.Consumer>
   )
 }
 
-Element.displayName = '@mosquito-ui/grid/Row'
+Element.displayName = 'mosquito-ui/grid/Row'
 
 export default Element

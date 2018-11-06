@@ -1,10 +1,30 @@
 import styled from 'styled-components'
+import { generateMediaQueries } from '../utils'
+
+const breakpointCss = ({
+  gap,
+  gutter,
+  ...rest
+}: {
+  gap?: number;
+  gutter?: number;
+}) => {
+  let result = ''
+
+  if (gap) {
+    result += `
+        margin: ${gutter === 0 ? (-1 * gap) / 2 : gap / 2}px -${gap / 2}px;
+      `
+  }
+
+  return result
+}
 
 interface Props {
+  breakpoints: object;
   gap?: number;
   gutter?: number;
   extendCss?: string;
-  children?: any;
 }
 
 export default styled.div<Props>`
@@ -12,11 +32,8 @@ export default styled.div<Props>`
   display: flex;
   flex-wrap: wrap;
 
-  ${({ gap, gutter }: { gap?: number; gutter?: number }) =>
-    gap &&
-    `
-    margin: ${gutter === 0 ? (-1 * gap) / 2 : gap / 2}px -${gap / 2}px;
-  `};
+  ${({ breakpoints }: { breakpoints: object }) =>
+    breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
 
   ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `
