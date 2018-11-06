@@ -64,14 +64,15 @@ const newViewports = {
 global.React = React
 global.storiesOf = storiesOf
 
-const req = require.context('../../src', true, /stories.tsx$/)
+const req = require.context('../../examples', true, /\/*stories.tsx$/)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
 
 configureViewport({
-  viewports: { ...newViewports, ...INITIAL_VIEWPORTS }
+  viewports: { ...newViewports, ...INITIAL_VIEWPORTS },
+  defaultViewport: 'xxl'
 })
 
 configure(loadStories, module)
