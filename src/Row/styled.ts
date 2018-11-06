@@ -4,6 +4,7 @@ interface Props {
   gap?: number;
   gutter?: number;
   extendCss?: string;
+  children?: any;
 }
 
 export default styled.div<Props>`

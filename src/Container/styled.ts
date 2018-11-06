@@ -14,6 +14,7 @@ const css = ({ container }: { container: number }) => {
 interface Props {
   breakpoints: object;
   extendCss?: string;
+  children?: any;
 }
 
 export default styled.div<Props>`

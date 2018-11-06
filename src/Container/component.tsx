@@ -13,10 +13,14 @@ const Element = ({ tag, children, extendCss, ...props }: Props) => {
     <ContainerCtx.Provider
       value={{
         ...props,
-        breakpointKeys: Object.keys(props.breakpoints),
+        breakpointKeys: Object.keys(props.breakpoints || {}),
       }}
     >
-      <Component {...props} extendCss={extendCss}>
+      <Component
+        {...props}
+        breakpoints={props.breakpoints || {}}
+        extendCss={extendCss}
+      >
         {children}
       </Component>
     </ContainerCtx.Provider>
