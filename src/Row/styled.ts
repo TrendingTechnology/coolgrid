@@ -35,5 +35,26 @@ export default styled.div<Props>`
   ${({ breakpoints }: { breakpoints: object }) =>
     breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
 
+      if (gutter === 0) {
+        marginTop = -1 * gap
+        marginBottom = 0
+      }
+
+      if (gutter && (gutter > 0 || gutter < 0)) {
+        marginTop = gutter
+        marginBottom = gutter
+      }
+
+      return `
+        margin-top: ${marginTop}px;
+        margin-left: -${marginVertical}px;
+        margin-right: -${marginVertical}px;
+        margin-bottom: ${marginBottom}px
+      `
+    }
+
+    return ''
+  }};
+
   ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `
