@@ -71,7 +71,8 @@ function loadStories() {
 }
 
 configureViewport({
-  viewports: { ...newViewports, ...INITIAL_VIEWPORTS }
+  viewports: { ...newViewports, ...INITIAL_VIEWPORTS },
+  defaultViewport: 'xxl'
 })
 
 configure(loadStories, module)

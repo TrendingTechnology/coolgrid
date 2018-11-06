@@ -2,7 +2,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/__snapshots__/**/*.*',
-    '!src/**/*.stories.{js,jsx,ts,tsx}'
+    '!src/**/*.stories.{js,jsx,ts,tsx}',
     '!src/**/stories.{js,jsx,ts,tsx}'
   ],
   preset: 'ts-jest',

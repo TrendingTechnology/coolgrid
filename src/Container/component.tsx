@@ -4,26 +4,40 @@ import Container from './styled'
 import { Props } from './types'
 import defaultProps from './defaultProps'
 
-const Element = ({ tag, children, extendCss, ...props }: Props) => {
-  // const Component = tag ? Container.withComponent(tag) : Container
-
-  const Component = Container
-
+const Element = ({
+  tag,
+  columns,
+  breakpoints,
+  extendCss,
+  extendColCss,
+  extendRowCss,
+  extendColProps,
+  extendRowProps,
+  ...props
+}: Props) => {
   return (
     <ContainerCtx.Provider
       value={{
-        ...props,
-        breakpointKeys: Object.keys(props.breakpoints),
+        columns,
+        breakpoints,
+        breakpointKeys: Object.keys(breakpoints || {}),
+        extendColCss,
+        extendRowCss,
+        extendColProps,
+        extendRowProps,
       }}
     >
-      <Component {...props} extendCss={extendCss}>
-        {children}
-      </Component>
+      <Container
+        as={tag}
+        breakpoints={breakpoints || {}}
+        extendCss={extendCss}
+        {...props}
+      />
     </ContainerCtx.Provider>
   )
 }
 
-Element.displayName = '@mosquito-ui/grid/Container'
+Element.displayName = 'mosquito-ui/grid/Container'
 Element.defaultProps = defaultProps
 
 export default Element

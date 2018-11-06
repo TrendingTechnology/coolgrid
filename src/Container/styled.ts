@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import generateMediaQueries from '../utils'
+import { generateMediaQueries } from '../utils'
 
-const css = ({ container }: { container: number }) => {
+const breakpointCss = ({ container }: { container: number }) => {
   let result = ''
-
   if (container) {
-    result += `max-width: ${container}px;`
+    result += `
+        max-width: ${container}px;
+      `
   }
 
   return result
@@ -23,6 +24,6 @@ export default styled.div<Props>`
   margin-left: auto;
 
   ${({ breakpoints }: { breakpoints: object }) =>
-    breakpoints && generateMediaQueries(breakpoints, css)};
+    breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
   ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `

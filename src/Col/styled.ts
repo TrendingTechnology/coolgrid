@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import generateMediaQueries from '../utils'
+import { generateMediaQueries } from '../utils'
 
 interface CssParams {
   size: number;
