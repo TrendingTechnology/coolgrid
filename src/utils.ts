@@ -62,6 +62,7 @@ const calculateBreakpointOptions = (
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
   // each breakpoint key should already contain viewport and container values,
   // so we extend this for additional values like gap, padding or size
+  // @ts-ignore
   for (const key of keys) {
     const additionalProps = {}
     attrs.forEach((element: string) => {
