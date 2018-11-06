@@ -11,6 +11,9 @@ export interface Props {
   md?: number | object;
   lg?: number | object;
   xl?: number | object;
+  phone?: number | object;
+  tablet?: number | object;
+  notebook?: number | object;
 }
 
 export interface Context {
