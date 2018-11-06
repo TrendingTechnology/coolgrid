@@ -57,7 +57,7 @@ const calculateBreakpointOptions = (
   props: object,
   attrs: string[]
 ) => {
-  const result = Object.assign({}, breakpoints)
+  const result: object = Object.assign({}, breakpoints)
 
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
   // each breakpoint key should already contain viewport and container values,
