@@ -1,39 +1,50 @@
-import React from 'react'
-import ContainerCtx from './context'
+import React, { Children } from 'react'
+import pick from 'lodash/pick'
+import omit from 'lodash/omit'
+import compact from 'lodash/compact'
+import Context from './context'
 import Container from './styled'
 import { Props } from './types'
 import defaultProps from './defaultProps'
 
+const RESERVED_WORDS = [
+  'size',
+  'gap',
+  'padding',
+  'columns',
+  'extendColCss',
+  'extendRowCss',
+]
+
 const Element = ({
+  children,
   tag,
-  columns,
-  breakpoints,
   extendCss,
-  extendColCss,
-  extendRowCss,
-  extendColProps,
-  extendRowProps,
+  breakpoints,
   ...props
 }: Props) => {
+  const breakpointKeys = Object.keys(breakpoints)
+  const breakpointsProps = pick(props, breakpointKeys)
+  const context = pick(props, RESERVED_WORDS)
+
   return (
-    <ContainerCtx.Provider
-      value={{
-        columns,
-        breakpoints,
-        breakpointKeys: Object.keys(breakpoints || {}),
-        extendColCss,
-        extendRowCss,
-        extendColProps,
-        extendRowProps,
-      }}
+    <Container
+      as={tag}
+      breakpoints={breakpoints}
+      extendCss={extendCss}
+      {...omit(props, RESERVED_WORDS)}
     >
-      <Container
-        as={tag}
-        breakpoints={breakpoints || {}}
-        extendCss={extendCss}
-        {...props}
-      />
-    </ContainerCtx.Provider>
+      <Context.Provider
+        value={{
+          breakpointKeys,
+          breakpoints,
+          ...breakpointsProps,
+          ...context,
+        }}
+      >
+        {children}
+      </Context.Provider>
+    </Container>
   )
 }
 

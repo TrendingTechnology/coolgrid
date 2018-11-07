@@ -6,6 +6,4 @@ export interface Props {
   extendCss?: string;
   extendRowCss?: string;
   extendColCss?: string;
-  extendColProps?: object;
-  extendRowProps?: object;
 }
