@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row - styled component renders correctly 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`Row - styled component renders correctly with extendCss 1`] = `
+<StyledComponent
+  extendCss="font-size: 20px; background-color: black"
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "kJujun",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`Row - styled component renders correctly with gap 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "lfXzTU",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+  gap={20}
+/>
+`;
+
+exports[`Row - styled component renders correctly with gap and gutter 1`] = `
+<StyledComponent
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "kJujun",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+  gap={20}
+  gutter={0}
+/>
+`;

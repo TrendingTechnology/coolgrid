@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mosquito-ui/grid/Container renders correctly 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  ",
+          [Function],
+          ";
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`mosquito-ui/grid/Container renders correctly width extendCss 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  extendCss="font-size: 20px; background-color: black;"
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "cNEQVf",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  ",
+          [Function],
+          ";
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;

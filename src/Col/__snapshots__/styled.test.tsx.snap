@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mosquito-ui/grid/Col renders correctly 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`mosquito-ui/grid/Col renders correctly size + gap and padding with media queries 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "gap": 30,
+        "padding": 35,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "gap": 20,
+        "padding": 20,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "gap": 10,
+        "padding": 10,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "hnZxYr",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`mosquito-ui/grid/Col renders correctly size with media queries 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "gVSGcS",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`mosquito-ui/grid/Col renders custom styles - extendCss 1`] = `
+<StyledComponent
+  breakpoints={
+    Object {
+      "md": Object {
+        "container": 720,
+        "size": 3,
+        "viewport": 778,
+      },
+      "sm": Object {
+        "container": 540,
+        "size": 6,
+        "viewport": 576,
+      },
+      "xs": Object {
+        "container": 0,
+        "size": 12,
+        "viewport": 0,
+      },
+    }
+  }
+  columns={12}
+  extendCss="font-size: 20px; background-color: black;"
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "lastClassName": "hnZxYr",
+        "rules": Array [
+          "
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+
+  ",
+          [Function],
+          ";
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
