@@ -52,6 +52,15 @@ const calc = (attr: string, key: string, props: number | object): any => {
   return param
 }
 
+interface AdditionalProps {
+  viewport?: number;
+  container?: number;
+  size?: number;
+  padding?: number;
+  gutter?: number;
+  gap?: number;
+}
+
 const calculateBreakpointOptions = (
   keys: object,
   breakpoints: object,
@@ -65,7 +74,7 @@ const calculateBreakpointOptions = (
   // so we extend this for additional values like gap, padding or size
   // @ts-ignore
   for (const key of keys) {
-    let additionalProps = {}
+    let additionalProps: AdditionalProps = {}
 
     // TODO: refactor later
     attrs.forEach((element: string) => {

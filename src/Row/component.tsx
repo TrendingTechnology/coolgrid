@@ -7,7 +7,7 @@ import { Ctx as ContainerCtx } from '../Container'
 import { Props, Context } from './types'
 import { calculateBreakpointOptions } from '../utils'
 
-const RESERVED_WORDS = [
+const RESERVED_WORDS: string[] = [
   'size',
   'gap',
   'gutter',
@@ -27,12 +27,12 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
           ['gap', 'gutter']
         )
 
-        const context = {
+        const context: object = {
           ...pick(ctx, RESERVED_WORDS),
           ...pick(props, RESERVED_WORDS),
         }
 
-        const breakpointValues = {
+        const breakpointValues: object = {
           ...pick(ctx, breakpointKeys),
           ...pick(props, breakpointKeys),
         }
