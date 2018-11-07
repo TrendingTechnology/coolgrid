@@ -40,7 +40,8 @@ const generateMediaQueries = (
 const calc = (attr: string, key: string, props: number | object): any => {
   const param: object | number | string = props[attr]
 
-  if (!param) {
+  // param can be even zero, eg. gutter
+  if (!param && param !== 0) {
     return null
   }
 
@@ -64,18 +65,33 @@ const calculateBreakpointOptions = (
   // so we extend this for additional values like gap, padding or size
   // @ts-ignore
   for (const key of keys) {
-    const additionalProps = {}
+    let additionalProps = {}
+
+    // TODO: refactor later
     attrs.forEach((element: string) => {
       const value = calc(element, key, props)
-      if (value) {
+      // zero quick fix
+      if (value || value === 0) {
         additionalProps[element] = value
       }
     })
 
+    const helper = props[key]
+
+    if (helper) {
+      if (typeof helper === 'object') {
+        const tpm = Object.assign({}, additionalProps)
+        additionalProps = { ...helper, ...tpm }
+      }
+
+      if (Number.isFinite(helper) || typeof helper === 'string') {
+        additionalProps.size = helper
+      }
+    }
+
     result[key] = Object.assign(
       {},
       breakpoints[key], // default object
-      typeof props[key] === 'object' ? props[key] : {},
       additionalProps
     )
   }
