@@ -1,14 +1,7 @@
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
-const breakpointCss = ({
-  gap,
-  gutter,
-  ...rest
-}: {
-  gap?: number;
-  gutter?: number;
-}) => {
+const breakpointCss = ({ gap, gutter }: { gap?: number; gutter?: number }) => {
   let result = ''
 
   if (gap) {
