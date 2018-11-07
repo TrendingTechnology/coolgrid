@@ -1,32 +1,25 @@
 import React from 'react'
+import pick from 'lodash/pick'
+import omit from 'lodash/omit'
 import RowCtx from './context'
 import Row from './styled'
 import { Ctx as ContainerCtx } from '../Container'
 import { Props, Context } from './types'
 import { calculateBreakpointOptions } from '../utils'
 
-const Element = ({
-  children,
-  tag,
-  columns,
-  size,
-  extendCss,
-  extendColCss,
-  extendColProps,
-  ...props
-}: Props) => {
+const RESERVED_WORDS: string[] = [
+  'size',
+  'gap',
+  'gutter',
+  'padding',
+  'columns',
+  'extendColCss',
+]
+
+const Element = ({ children, tag, extendCss, ...props }: Props) => {
   return (
     <ContainerCtx.Consumer>
-      {({
-        breakpoints,
-        breakpointKeys,
-        columns: ctxColumns,
-        extendRowCss,
-        extendRowProps,
-        extendColCss: extendColCssContainerProvider,
-        extendColProps: extendColPropsContainerProvider,
-        ...ctx
-      }: Context) => {
+      {({ breakpoints, breakpointKeys, extendRowCss, ...ctx }: Context) => {
         const breakpointOptions = calculateBreakpointOptions(
           breakpointKeys,
           breakpoints,
@@ -34,26 +27,29 @@ const Element = ({
           ['gap', 'gutter']
         )
 
+        const context: object = {
+          ...pick(ctx, RESERVED_WORDS),
+          ...pick(props, RESERVED_WORDS),
+        }
+
+        const breakpointValues: object = {
+          ...pick(ctx, breakpointKeys),
+          ...pick(props, breakpointKeys),
+        }
+
         return (
           <Row
             as={tag}
             breakpoints={breakpointOptions}
             extendCss={extendCss || extendRowCss}
-            {...extendRowProps}
-            {...props}
+            {...omit(props, RESERVED_WORDS)}
           >
             <RowCtx.Provider
-              // pass values to Columns via context
               value={{
-                ...ctx,
                 breakpointKeys,
                 breakpoints,
-                gap: props.gap,
-                padding: props.padding,
-                columns: columns || ctxColumns,
-                size,
-                extendCss: extendColCss || extendColCssContainerProvider,
-                ...(extendColProps || extendColPropsContainerProvider || {}),
+                ...breakpointValues,
+                ...context,
               }}
             >
               {children}

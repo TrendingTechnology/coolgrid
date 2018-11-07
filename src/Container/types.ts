@@ -6,6 +6,8 @@ export interface Props {
   extendCss?: string;
   extendRowCss?: string;
   extendColCss?: string;
-  extendColProps?: object;
-  extendRowProps?: object;
+  gap?: number;
+  padding?: number;
+  size?: number;
+  gutter?: number;
 }

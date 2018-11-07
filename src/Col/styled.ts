@@ -47,7 +47,7 @@ export default styled.div<Props>`
   flex-grow: 1;
 
   ${({ breakpoints, columns }: { breakpoints: object; columns: number }) =>
-    breakpoints && generateMediaQueries(breakpoints, css(columns))};
+    generateMediaQueries(breakpoints, css(columns))};
 
   ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
 `

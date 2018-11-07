@@ -8,15 +8,12 @@ export interface Props {
   padding?: number | object;
   extendCss?: string;
   extendColCss?: string;
-  extendColProps?: object;
 }
 
 export interface Context {
   breakpoints: object;
-  breakpointKeys: object;
+  breakpointKeys: string[];
   columns: number;
   extendRowCss?: string;
   extendColCss?: string;
-  extendColProps?: object;
-  extendRowProps?: object;
 }

@@ -20,6 +20,6 @@ export interface Context {
   breakpoints: object;
   breakpointKeys: string[];
   columns: number;
-  extendCss?: string;
+  extendColCss?: string;
   ctx?: object;
 }
