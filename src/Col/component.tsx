@@ -1,8 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 import RowCtx from '../Row/context'
-import Col from './styled'
+import Styled from './styled'
 import { Props, Context } from './types'
 import { calculateBreakpointOptions } from '../utils'
 
@@ -34,15 +35,22 @@ const Element = ({ tag, children, extendCss, ...props }: Props) => (
         ['size', 'padding', 'gap']
       )
 
+      const css = extendCss || extendColCss
+      const Column = css
+        ? styled(Styled)`
+            ${css}
+          `
+        : Styled
+
       return (
-        <Col
-          extendCss={extendCss || extendColCss}
+        <Column
+          // extendCss={extendCss || extendColCss}
           breakpoints={breakpointOptions}
           columns={columns}
           {...omit(props, RESERVED_WORDS)}
         >
           {children}
-        </Col>
+        </Column>
       )
     }}
   </RowCtx.Consumer>
