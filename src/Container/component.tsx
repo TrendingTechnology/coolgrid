@@ -1,8 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 import Context from './context'
-import Container from './styled'
+import Styled from './styled'
 import { Props } from './types'
 import defaultProps from './defaultProps'
 
@@ -27,11 +28,17 @@ const Element = ({
   const breakpointsProps: object = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
 
+  const css = extendCss
+  const Container = css
+    ? styled(Styled)`
+        ${css}
+      `
+    : Styled
+
   return (
     <Container
       as={tag}
       breakpoints={breakpoints}
-      extendCss={extendCss}
       {...omit(props, RESERVED_WORDS)}
     >
       <Context.Provider

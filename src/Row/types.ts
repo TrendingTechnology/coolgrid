@@ -1,3 +1,5 @@
+import { css } from '../types'
+
 export interface Props {
   children?: any;
   tag?: any;
@@ -6,14 +8,14 @@ export interface Props {
   columns?: number;
   gutter?: number;
   padding?: number | object;
-  extendCss?: string;
-  extendColCss?: string;
+  extendCss?: css;
+  extendColCss?: css;
 }
 
 export interface Context {
   breakpoints: object;
   breakpointKeys: string[];
   columns: number;
-  extendRowCss?: string;
-  extendColCss?: string;
+  extendRowCss?: css;
+  extendColCss?: css;
 }
