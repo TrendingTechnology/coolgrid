@@ -1,10 +1,12 @@
+import { css } from '../types'
+
 export interface Props {
   children?: any;
   tag?: string;
   size?: any;
   gap?: any;
   padding?: any;
-  extendCss?: string;
+  extendCss?: css;
   // hack for stories at this moment, should be deleted
   xs?: number | object;
   sm?: number | object;
@@ -20,6 +22,6 @@ export interface Context {
   breakpoints: object;
   breakpointKeys: string[];
   columns: number;
-  extendColCss?: string;
+  extendColCss?: css;
   ctx?: object;
 }

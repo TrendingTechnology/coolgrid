@@ -1,3 +1,4 @@
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
@@ -14,16 +15,20 @@ const breakpointCss = ({ container }: { container: number }) => {
 
 interface Props {
   breakpoints: object;
-  extendCss?: string;
 }
 
-export default styled.div<Props>`
+const Styled = styled.div<Props>`
   box-sizing: border-box;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
 
   ${({ breakpoints }: { breakpoints: object }) =>
-    breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
-  ${({ extendCss }: { extendCss?: string }) => extendCss && extendCss};
+    generateMediaQueries(breakpoints, breakpointCss)};
 `
+
+export default class extends PureComponent<Props> {
+  public render() {
+    return <Styled {...this.props} />
+  }
+}

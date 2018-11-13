@@ -1,10 +1,11 @@
 import React from 'react'
+import { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = `
+const columnCss = css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
