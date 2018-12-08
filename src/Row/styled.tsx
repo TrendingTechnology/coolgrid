@@ -24,6 +24,7 @@ const Styled = styled.div<Props>`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  align-self: stretch;
 
   ${({ breakpoints }: { breakpoints: object }) =>
     breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
