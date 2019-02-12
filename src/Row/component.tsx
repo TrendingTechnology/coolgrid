@@ -4,9 +4,9 @@ import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 import RowCtx from './context'
 import Styled from './styled'
+import { calculateBreakpointOptions, extendCss } from '../utils'
 import { Ctx as ContainerCtx } from '../Container'
 import { Props, Context } from './types'
-import { calculateBreakpointOptions } from '../utils'
 
 const RESERVED_WORDS: string[] = [
   'size',
@@ -14,13 +14,13 @@ const RESERVED_WORDS: string[] = [
   'gutter',
   'padding',
   'columns',
-  'extendColCss',
+  'colCss',
 ]
 
-const Element = ({ children, tag, extendCss, ...props }: Props) => {
+const Element = ({ children, tag, css, ...props }: Props) => {
   return (
     <ContainerCtx.Consumer>
-      {({ breakpoints, breakpointKeys, extendRowCss, ...ctx }: Context) => {
+      {({ breakpoints, breakpointKeys, baseSize, rowCss, ...ctx }: Context) => {
         const breakpointOptions = calculateBreakpointOptions(
           breakpointKeys,
           breakpoints,
@@ -31,6 +31,7 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
         const context: object = {
           ...pick(ctx, RESERVED_WORDS),
           ...pick(props, RESERVED_WORDS),
+          baseSize,
         }
 
         const breakpointValues: object = {
@@ -38,10 +39,10 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
           ...pick(props, breakpointKeys),
         }
 
-        const css = extendCss || extendRowCss
-        const Row = css
+        const cssHelper = extendCss(css || rowCss)
+        const Row = cssHelper
           ? styled(Styled)`
-              ${css}
+              ${cssHelper}
             `
           : Styled
 
@@ -49,6 +50,7 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
           <Row
             as={tag}
             breakpoints={breakpointOptions}
+            baseSize={baseSize}
             {...omit(props, RESERVED_WORDS)}
           >
             <RowCtx.Provider

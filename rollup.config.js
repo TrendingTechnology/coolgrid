@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import { uglify } from 'rollup-plugin-uglify'
 import { terser } from 'rollup-plugin-terser'
 
-const input = './lib/index.js'
+const input = 'lib/index.js'
 const globals = {
   react: 'React',
   'styled-components': 'styled'

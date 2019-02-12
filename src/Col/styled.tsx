@@ -1,14 +1,13 @@
-import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
 interface CssParams {
-  size: number;
-  gap?: number;
-  padding?: number;
+  size: number
+  gap?: number
+  padding?: number
 }
 
-const css = (columns: number) => ({ size, gap, padding }: CssParams) => {
+const cssCreator = (columns: number) => ({ size, gap, padding }: CssParams) => {
   let result = ''
   const width: number = (size / columns) * 100
 
@@ -21,10 +20,10 @@ const css = (columns: number) => ({ size, gap, padding }: CssParams) => {
 `
   }
 
-  if (padding) {
+  if (padding || padding === 0) {
     result += `padding: ${padding}px;`
   }
-  if (gap) {
+  if (gap || gap === 0) {
     result += `margin-left: ${gap / 2}px; margin-right: ${gap /
       2}px; margin-top: ${gap}px;`
   }
@@ -33,11 +32,12 @@ const css = (columns: number) => ({ size, gap, padding }: CssParams) => {
 }
 
 interface Props {
-  breakpoints: object;
-  columns: number;
+  breakpoints: object
+  columns: number
+  baseSize: number
 }
 
-const Styled = styled.div<Props>`
+export default styled.div<Props>`
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -46,12 +46,13 @@ const Styled = styled.div<Props>`
   flex-basis: 0;
   flex-grow: 1;
 
-  ${({ breakpoints, columns }: { breakpoints: object; columns: number }) =>
-    generateMediaQueries(breakpoints, css(columns))};
+  ${({
+    breakpoints,
+    columns,
+    baseSize,
+  }: {
+    breakpoints: object
+    columns: number
+    baseSize: number
+  }) => generateMediaQueries(breakpoints, baseSize, cssCreator(columns))};
 `
-
-export default class extends PureComponent<Props> {
-  public render() {
-    return <Styled {...this.props} />
-  }
-}

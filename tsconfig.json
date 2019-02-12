@@ -8,9 +8,8 @@
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "rootDir": "./",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "noImplicitReturns": true,
@@ -27,7 +26,6 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*.ts*"],
   "exclude": [
     "node_modules",
     "lib",
@@ -35,11 +33,10 @@
     "build",
     "scripts",
     "tools/*",
+    "examples/*",
     "src/**/*.stories.*",
     "src/**/stories.*",
     "src/**/*.test.*",
-    "src/**/__snapshots__/**/*",
-    "examples/stories.*",
-    "examples/*.stories.*"
+    "src/**/__snapshots__/**/*"
   ]
 }

@@ -1,27 +1,16 @@
-import { css } from '../types'
+import { css, IBreakpoint } from '../types'
 
-export interface Props {
-  children?: any;
-  tag?: string;
-  size?: any;
-  gap?: any;
-  padding?: any;
-  extendCss?: css;
-  // hack for stories at this moment, should be deleted
-  xs?: number | object;
-  sm?: number | object;
-  md?: number | object;
-  lg?: number | object;
-  xl?: number | object;
-  phone?: number | object;
-  tablet?: number | object;
-  notebook?: number | object;
+export interface Props extends IBreakpoint {
+  children?: any
+  tag?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  css?: css
+  [propName: string]: any
 }
 
 export interface Context {
-  breakpoints: object;
-  breakpointKeys: string[];
-  columns: number;
-  extendColCss?: css;
-  ctx?: object;
+  breakpoints: object
+  breakpointKeys: string[]
+  columns: number
+  colCss?: css
+  ctx?: object
 }

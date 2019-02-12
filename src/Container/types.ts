@@ -1,15 +1,11 @@
-import { css } from '../types'
+import { css, IBreakpoint } from '../types'
 
-export interface Props {
-  children?: any;
-  tag?: string;
-  breakpoints?: object;
-  columns?: number;
-  extendCss?: css;
-  extendRowCss?: css;
-  extendColCss?: css;
-  gap?: number;
-  padding?: number;
-  size?: number;
-  gutter?: number;
+export interface Props extends IBreakpoint {
+  children?: any
+  tag?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  breakpoints?: object
+  columns?: number
+  css?: css
+  rowCss?: css
+  colCss?: css
 }

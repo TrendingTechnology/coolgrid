@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
+import { StyledProps } from './types'
 
 const breakpointCss = ({ gap, gutter }: { gap?: number; gutter?: number }) => {
   let result = ''
@@ -14,24 +14,12 @@ const breakpointCss = ({ gap, gutter }: { gap?: number; gutter?: number }) => {
   return result
 }
 
-interface Props {
-  breakpoints: object;
-  gap?: number;
-  gutter?: number;
-}
-
-const Styled = styled.div<Props>`
+export default styled.div<StyledProps>`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   align-self: stretch;
 
-  ${({ breakpoints }: { breakpoints: object }) =>
-    breakpoints && generateMediaQueries(breakpoints, breakpointCss)};
+  ${({ breakpoints, baseSize }: { breakpoints: object; baseSize: number }) =>
+    breakpoints && generateMediaQueries(breakpoints, baseSize, breakpointCss)};
 `
-
-export default class extends PureComponent<Props> {
-  public render() {
-    return <Styled {...this.props} />
-  }
-}

@@ -6,6 +6,7 @@ import Context from './context'
 import Styled from './styled'
 import { Props } from './types'
 import defaultProps from './defaultProps'
+import { extendCss } from '../utils'
 
 const RESERVED_WORDS: string[] = [
   'size',
@@ -13,25 +14,26 @@ const RESERVED_WORDS: string[] = [
   'padding',
   'gutter',
   'columns',
-  'extendColCss',
-  'extendRowCss',
+  'colCss',
+  'rowCss',
 ]
 
 const Element = ({
   children,
   tag,
-  extendCss,
-  breakpoints = {},
+  css,
+  breakpoints,
+  baseSize,
   ...props
 }: Props) => {
   const breakpointKeys: string[] = Object.keys(breakpoints)
   const breakpointsProps: object = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
 
-  const css = extendCss
-  const Container = css
+  const cssHelper = extendCss(css)
+  const Container = cssHelper
     ? styled(Styled)`
-        ${css}
+        ${cssHelper}
       `
     : Styled
 
@@ -39,12 +41,14 @@ const Element = ({
     <Container
       as={tag}
       breakpoints={breakpoints}
+      baseSize={baseSize}
       {...omit(props, RESERVED_WORDS)}
     >
       <Context.Provider
         value={{
           breakpointKeys,
           breakpoints,
+          baseSize,
           ...breakpointsProps,
           ...context,
         }}

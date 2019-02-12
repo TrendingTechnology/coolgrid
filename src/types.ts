@@ -1,3 +1,11 @@
-import { InterpolationValue } from 'styled-components'
+import { FlattenSimpleInterpolation } from 'styled-components'
 
-export type css = InterpolationValue[] | string
+export type css = FlattenSimpleInterpolation | Function
+export type contextProperty = number | object
+
+export interface IBreakpoint {
+  gap?: contextProperty
+  gutter?: contextProperty
+  padding?: contextProperty
+  size?: contextProperty
+}

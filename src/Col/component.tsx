@@ -5,17 +5,18 @@ import omit from 'lodash/omit'
 import RowCtx from '../Row/context'
 import Styled from './styled'
 import { Props, Context } from './types'
-import { calculateBreakpointOptions } from '../utils'
+import { calculateBreakpointOptions, extendCss } from '../utils'
 
-const RESERVED_WORDS = ['size', 'gap', 'padding']
+const RESERVED_WORDS: string[] = ['size', 'gap', 'padding']
 
-const Element = ({ tag, children, extendCss, ...props }: Props) => (
+const Element = ({ children, tag, css, ...props }: Props) => (
   <RowCtx.Consumer>
     {({
       breakpoints,
       breakpointKeys,
       columns,
-      extendColCss,
+      colCss,
+      baseSize,
       ...ctx
     }: Context) => {
       const context = {
@@ -32,21 +33,22 @@ const Element = ({ tag, children, extendCss, ...props }: Props) => (
         breakpointKeys,
         breakpoints,
         { ...context, ...breakpointKeyProps },
-        ['size', 'padding', 'gap']
+        RESERVED_WORDS
       )
 
-      const css = extendCss || extendColCss
-      const Column = css
+      const cssHelper = extendCss(css || colCss)
+      const Column = cssHelper
         ? styled(Styled)`
-            ${css}
+            ${cssHelper}
           `
         : Styled
 
       return (
         <Column
-          // extendCss={extendCss || extendColCss}
+          as={tag}
           breakpoints={breakpointOptions}
           columns={columns}
+          baseSize={baseSize}
           {...omit(props, RESERVED_WORDS)}
         >
           {children}

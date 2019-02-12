@@ -1,17 +1,16 @@
 import React from 'react'
-import { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = css`
+const columnCss = (css: any) => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
 `
 
-const columnCss1 = css`
+const columnCss1 = (css: any) => css`
   background-color: #efefef;
   border: 1px solid #e0e0e0;
   padding: 20px;
@@ -20,7 +19,7 @@ const columnCss1 = css`
 storiesOf('Context usage', module)
   .add('Define gap and size on Container', () => {
     return (
-      <Container gap={10} size={4} extendColCss={columnCss}>
+      <Container gap={10} size={4} colCss={columnCss}>
         <Row>
           <Col>gap-10</Col>
           <Col>gap-10</Col>
@@ -39,7 +38,7 @@ storiesOf('Context usage', module)
   })
   .add('Define gap and size on Rows', () => {
     return (
-      <Container extendColCss={columnCss}>
+      <Container colCss={columnCss}>
         <Row gap={10} size={4}>
           <Col>gap-10</Col>
           <Col>gap-10</Col>
@@ -59,7 +58,7 @@ storiesOf('Context usage', module)
   })
   .add('Different Col styles', () => {
     return (
-      <Container extendColCss={columnCss}>
+      <Container colCss={columnCss}>
         <Row>
           <Col>gap-0</Col>
           <Col>gap-0</Col>
@@ -67,7 +66,7 @@ storiesOf('Context usage', module)
           <Col>gap-0</Col>
           <Col>gap-0</Col>
         </Row>
-        <Row gap={10} extendColCss={columnCss1}>
+        <Row gap={10} colCss={columnCss1}>
           <Col>gap-10</Col>
           <Col>gap-10</Col>
           <Col>gap-10</Col>
@@ -81,7 +80,7 @@ storiesOf('Context usage', module)
           <Col>gap-20</Col>
           <Col>gap-20</Col>
         </Row>
-        <Row gap={20} extendColCss={columnCss1}>
+        <Row gap={20} colCss={columnCss1}>
           <Col>gap-30</Col>
           <Col>gap-30</Col>
           <Col>gap-30</Col>

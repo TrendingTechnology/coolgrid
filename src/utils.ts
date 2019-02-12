@@ -1,17 +1,36 @@
+import { css } from 'styled-components'
+
+// ------------------------------------------
+// extendCss utility
+// ------------------------------------------
+export const extendCss = (value: any): any => {
+  if (!value) {
+    return undefined
+  }
+
+  if (typeof value === 'function') {
+    return value(css)
+  }
+
+  return css`
+    ${value}
+  `
+}
+
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (viewport: number, data?: string): string => {
+const mediaQuery = (viewport: number, baseSize, data?: string): string => {
   if (!data) {
     return ''
   }
 
   if (viewport > 0) {
     return `
-    @media only screen and (min-width: ${viewport}px) {
-      ${data}
-    }
-  `
+      @media only screen and (min-width: ${viewport / baseSize}em) {
+        ${data}
+      }
+    `
   }
 
   return data
@@ -19,15 +38,15 @@ const mediaQuery = (viewport: number, data?: string): string => {
 
 const generateMediaQueries = (
   breakpoints: object,
+  baseSize: number,
   css: (css: object) => string
 ): string => {
   let result = ''
   const entries = Object.entries(breakpoints)
-
   for (const [, dimensions] of entries) {
     const { viewport } = dimensions
     if (dimensions.viewport >= 0) {
-      result += mediaQuery(viewport, css(dimensions))
+      result += mediaQuery(viewport, baseSize, css(dimensions))
     }
   }
 
@@ -45,20 +64,24 @@ const calc = (attr: string, key: string, props: number | object): any => {
     return null
   }
 
-  if (param && typeof param === 'object' && Object.keys(param).includes(key)) {
-    return param[key]
+  if (param && typeof param === 'object') {
+    if (Object.keys(param).includes(key)) {
+      return param[key]
+    } else {
+      return null
+    }
   }
 
   return param
 }
 
 interface AdditionalProps {
-  viewport?: number;
-  container?: number;
-  size?: number;
-  padding?: number;
-  gutter?: number;
-  gap?: number;
+  viewport?: number
+  container?: number
+  size?: number
+  padding?: number
+  gutter?: number
+  gap?: number
 }
 
 const calculateBreakpointOptions = (
@@ -83,6 +106,8 @@ const calculateBreakpointOptions = (
       if (value || value === 0) {
         additionalProps[element] = value
       }
+
+      // console.log(additionalProps)
     })
 
     const helper = props[key]

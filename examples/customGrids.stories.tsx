@@ -1,11 +1,10 @@
 import React from 'react'
-import { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = css`
+const columnCss = (css: any) => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
@@ -14,7 +13,7 @@ const columnCss = css`
 storiesOf('Custom Grid Examples', module)
   .add('5 Columns Grid', () => {
     return (
-      <Container columns={5} extendColCss={columnCss}>
+      <Container columns={5} colCss={columnCss}>
         <Row>
           <Col />
           <Col />
@@ -35,7 +34,7 @@ storiesOf('Custom Grid Examples', module)
   })
   .add('7 Columns Grid', () => {
     return (
-      <Container columns={7} extendColCss={columnCss}>
+      <Container columns={7} colCss={columnCss}>
         <Row>
           <Col />
           <Col />
@@ -73,7 +72,7 @@ storiesOf('Custom Grid Examples', module)
       },
     }
     return (
-      <Container breakpoints={breakpoints} extendColCss={columnCss}>
+      <Container breakpoints={breakpoints} colCss={columnCss}>
         <Row>
           <Col size={2} />
           <Col size={3} />
