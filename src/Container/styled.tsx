@@ -14,6 +14,7 @@ const breakpointCss = ({ container }: { container: number }) => {
 
 interface Props {
   breakpoints: object
+  baseSize: number
 }
 
 export default styled.div<Props>`
@@ -22,6 +23,6 @@ export default styled.div<Props>`
   margin-right: auto;
   margin-left: auto;
 
-  ${({ breakpoints, baseSize }: { breakpoints: object; baseSize: number }) =>
+  ${({ breakpoints, baseSize }) =>
     generateMediaQueries(breakpoints, baseSize, breakpointCss)};
 `

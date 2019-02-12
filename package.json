@@ -16,7 +16,7 @@
   "module": "dist/mosquito-grid.module.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && cpr lib dist --delete-first --filter=\\\\.js && yarn rollup",
+    "build": "rm -rf lib dist && tsc && cpr lib dist --delete-first --filter=\\\\.js && yarn rollup",
     "storybook": "start-storybook -p 6006 -c tools/storybook",
     "storybook:build": "build-storybook -c tools/storybook -o docs/storybook",
     "lint": "yarn lint:css && yarn lint:ts",
@@ -67,11 +67,11 @@
     "react": "^16.8.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.8.1",
-    "rollup": "^0.67.4",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup": "^1.1.2",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-uglify": "^6.0.2",
     "styled-components": "^4.1.3",
     "stylelint": "^9.10.1",
@@ -81,5 +81,8 @@
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   }
 }

@@ -8,4 +8,5 @@ export interface Props extends IBreakpoint {
   css?: css
   rowCss?: css
   colCss?: css
+  [propName: string]: any
 }

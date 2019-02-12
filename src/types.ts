@@ -8,4 +8,5 @@ export interface IBreakpoint {
   gutter?: contextProperty
   padding?: contextProperty
   size?: contextProperty
+  baseSize: number
 }

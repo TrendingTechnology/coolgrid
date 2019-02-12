@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
+import { pick, omit } from 'lodash'
 import RowCtx from './context'
 import Styled from './styled'
 import { calculateBreakpointOptions, extendCss } from '../utils'

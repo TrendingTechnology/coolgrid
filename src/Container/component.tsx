@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
+import { pick, omit } from 'lodash'
 import Context from './context'
 import Styled from './styled'
 import { Props } from './types'
@@ -22,7 +21,7 @@ const Element = ({
   children,
   tag,
   css,
-  breakpoints,
+  breakpoints = {},
   baseSize,
   ...props
 }: Props) => {

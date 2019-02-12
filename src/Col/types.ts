@@ -12,5 +12,6 @@ export interface Context {
   breakpointKeys: string[]
   columns: number
   colCss?: css
-  ctx?: object
+  baseSize: number
+  [propName: string]: any
 }

@@ -55,9 +55,6 @@ storiesOf('Responsive Examples', module)
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
-          <Col>xs:12, md:4, lg:6</Col>
-          <Col>xs:12, md:4, lg:6</Col>
-          <Col>xs:12, md:4, lg:6</Col>
         </Row>
       </Container>
     )
@@ -74,9 +71,6 @@ storiesOf('Responsive Examples', module)
           <Col>xs:12, md:4, lg:6</Col>
         </Row>
         <Row gap={10} xs={12} md={4} lg={6}>
-          <Col>xs:12, md:4, lg:6</Col>
-          <Col>xs:12, md:4, lg:6</Col>
-          <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>

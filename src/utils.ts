@@ -20,7 +20,11 @@ export const extendCss = (value: any): any => {
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (viewport: number, baseSize, data?: string): string => {
+const mediaQuery = (
+  viewport: number,
+  baseSize: number,
+  data?: string
+): string => {
   if (!data) {
     return ''
   }
