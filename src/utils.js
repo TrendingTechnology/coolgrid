@@ -20,7 +20,7 @@ export const extendCss = value => {
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (viewport, baseSize, data?) => {
+const mediaQuery = (viewport, baseSize, data) => {
   if (!data) {
     return ''
   }
@@ -79,10 +79,10 @@ const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
   // so we extend this for additional values like gap, padding or size
   // @ts-ignore
   for (const key of keys) {
-    let additionalProps: AdditionalProps = {}
+    let additionalProps = {}
 
     // TODO: refactor later
-    attrs.forEach((element: string) => {
+    attrs.forEach(element => {
       const value = calc(element, key, props)
       // zero quick fix
       if (value || value === 0) {

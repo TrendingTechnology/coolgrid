@@ -23,7 +23,7 @@ const Element = ({
   breakpoints = {},
   baseSize,
   ...props
-}: Props) => {
+}) => {
   const breakpointKeys = Object.keys(breakpoints)
   const breakpointsProps = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
