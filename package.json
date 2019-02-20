@@ -16,7 +16,7 @@
   "module": "dist/mosquito-grid.module.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf lib dist && tsc && cpr lib dist --delete-first --filter=\\\\.js && yarn rollup",
+    "build": "rm -rf lib dist && babel src -d lib && cpr lib dist --delete-first && yarn rollup",
     "storybook": "start-storybook -p 6006 -c tools/storybook",
     "storybook:build": "build-storybook -c tools/storybook -o docs/",
     "lint": "yarn lint:css && yarn lint:ts",
@@ -38,6 +38,7 @@
     "styled-components": ">= 4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@storybook/addon-notes": "^4.1.11",
     "@storybook/addon-storysource": "^4.1.11",
