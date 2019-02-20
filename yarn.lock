@@ -1071,7 +1071,7 @@
     marked "^0.5.2"
     prop-types "^15.6.2"
 
-"@storybook/addon-storysource@^4.1.11":
+"@storybook/addon-storysource@^4.1.12":
   version "4.1.12"
   resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-4.1.12.tgz#7289199f86ae85d099e6a2d026c5d4fcf0559f8a"
   integrity sha512-IGBWfAUE/235jX1Qi+sA1r0erR81wFbRT6wDyey2T55uZYzJlfauZKVxD5Mi7Avb5SplqcEek+QPQ/bSP2+IJQ==

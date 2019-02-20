@@ -114,7 +114,7 @@ storiesOf('Responsive Examples', module)
         md={4}
         lg={6}
         colCss={colCss}
-        padding={{ xs: 30, md: 10, ld: 60 }}
+        padding={{ xs: 30, md: 10, lg: 60 }}
       >
         <Row gap={0}>
           <Col>xs:12, md:4, lg:6</Col>
