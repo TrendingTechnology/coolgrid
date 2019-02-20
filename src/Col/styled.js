@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
 const cssCreator = columns => ({ size, gap, padding }) => {
@@ -33,6 +33,11 @@ export default styled.div`
   max-width: 100%;
   flex-basis: 0;
   flex-grow: 1;
+
+  ${({ extendCss }) =>
+    css`
+      ${extendCss}
+    `}
 
   ${({ breakpoints, columns, baseSize }) =>
     generateMediaQueries(breakpoints, baseSize, cssCreator(columns))};

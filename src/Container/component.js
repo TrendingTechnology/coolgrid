@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { pick, omit } from 'lodash'
 import Context from './context'
 import Styled from './styled'
@@ -28,18 +27,12 @@ const Element = ({
   const breakpointsProps = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
 
-  const cssHelper = extendCss(css)
-  const Container = cssHelper
-    ? styled(Styled)`
-        ${cssHelper}
-      `
-    : Styled
-
   return (
-    <Container
+    <Styled
       as={tag}
       breakpoints={breakpoints}
       baseSize={baseSize}
+      extendCss={extendCss(css)}
       {...omit(props, RESERVED_WORDS)}
     >
       <Context.Provider
@@ -53,7 +46,7 @@ const Element = ({
       >
         {children}
       </Context.Provider>
-    </Container>
+    </Styled>
   )
 }
 

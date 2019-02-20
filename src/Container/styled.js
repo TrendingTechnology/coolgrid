@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
 const breakpointCss = ({ container }) => {
@@ -17,6 +17,11 @@ export default styled.div`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+
+  ${({ extendCss }) =>
+    css`
+      ${extendCss}
+    `}
 
   ${({ breakpoints, baseSize }) =>
     generateMediaQueries(breakpoints, baseSize, breakpointCss)};

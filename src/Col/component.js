@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { pick, omit } from 'lodash'
 import RowCtx from '../Row/context'
 import Styled from './styled'
@@ -27,23 +26,17 @@ const Element = ({ children, tag, css, ...props }) => (
         RESERVED_WORDS
       )
 
-      const cssHelper = extendCss(css || colCss)
-      const Column = cssHelper
-        ? styled(Styled)`
-            ${cssHelper}
-          `
-        : Styled
-
       return (
-        <Column
+        <Styled
           as={tag}
           breakpoints={breakpointOptions}
           columns={columns}
           baseSize={baseSize}
+          extendCss={extendCss(css || colCss)}
           {...omit(props, RESERVED_WORDS)}
         >
           {children}
-        </Column>
+        </Styled>
       )
     }}
   </RowCtx.Consumer>

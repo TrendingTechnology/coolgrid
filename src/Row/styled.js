@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
 const breakpointCss = ({ gap, gutter }) => {
@@ -18,6 +18,11 @@ export default styled.div`
   display: flex;
   flex-wrap: wrap;
   align-self: stretch;
+
+  ${({ extendCss }) =>
+    css`
+      ${extendCss}
+    `}
 
   ${({ breakpoints, baseSize }) =>
     breakpoints && generateMediaQueries(breakpoints, baseSize, breakpointCss)};

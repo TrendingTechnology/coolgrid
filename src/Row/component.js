@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { pick, omit } from 'lodash'
 import RowCtx from './context'
 import Styled from './styled'
@@ -22,26 +21,20 @@ const Element = ({ children, tag, css, ...props }) => {
         const context = {
           ...pick(ctx, RESERVED_WORDS),
           ...pick(props, RESERVED_WORDS),
-          baseSize,
+          baseSize
         }
 
         const breakpointValues = {
           ...pick(ctx, breakpointKeys),
-          ...pick(props, breakpointKeys),
+          ...pick(props, breakpointKeys)
         }
 
-        const cssHelper = extendCss(css || rowCss)
-        const Row = cssHelper
-          ? styled(Styled)`
-              ${cssHelper}
-            `
-          : Styled
-
         return (
-          <Row
+          <Styled
             as={tag}
             breakpoints={breakpointOptions}
             baseSize={baseSize}
+            extendCss={extendCss(css || rowCss)}
             {...omit(props, RESERVED_WORDS)}
           >
             <RowCtx.Provider
@@ -49,12 +42,12 @@ const Element = ({ children, tag, css, ...props }) => {
                 breakpointKeys,
                 breakpoints,
                 ...breakpointValues,
-                ...context,
+                ...context
               }}
             >
               {children}
             </RowCtx.Provider>
-          </Row>
+          </Styled>
         )
       }}
     </ContainerCtx.Consumer>
