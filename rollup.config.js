@@ -6,18 +6,17 @@ import { terser } from 'rollup-plugin-terser'
 const input = 'lib/index.js'
 const globals = {
   react: 'React',
-  'styled-components': 'styled',
-  lodash: 'lodash'
+  'styled-components': 'styled'
 }
-const external = ['react', 'styled-components', 'lodash']
+const external = ['react', 'styled-components']
 
 export default [
   {
     input: input,
     output: {
-      file: './dist/mosquito-grid.js',
+      file: './dist/coolgrid.js',
       format: 'cjs',
-      name: 'mosquitoGrid',
+      name: 'coolgrid',
       globals: globals,
       exports: 'named'
     },
@@ -27,9 +26,9 @@ export default [
   {
     input: input,
     output: {
-      file: './dist/mosquito-grid.umd.js',
+      file: './dist/coolgrid.umd.js',
       format: 'umd',
-      name: 'mosquitoGrid',
+      name: 'coolgrid',
       globals: globals
     },
     external: external,
@@ -38,7 +37,7 @@ export default [
   {
     input: input,
     output: {
-      file: './dist/mosquito-grid.module.js',
+      file: './dist/coolgrid.module.js',
       format: 'es',
       globals: globals
     },
