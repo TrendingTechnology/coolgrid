@@ -1,19 +1,19 @@
 {
-  "name": "@mosquito-ui/grid",
+  "name": "coolgrid",
   "author": "Vit Bokisch <vit@bokisch.cz>",
   "maintainers": [
     "Vit Bokisch <vit@bokisch.cz>"
   ],
-  "version": "0.4.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Ultra flexible and extensible grid system based on styled-components",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mosquito-ui/grid"
+    "url": "https://github.com/vitbokisch/coolgrid"
   },
-  "main": "dist/mosquito-grid.js",
-  "umd:main": "dist/mosquito-grid.umd.js",
-  "module": "dist/mosquito-grid.module.js",
+  "main": "dist/coolgrid.js",
+  "umd:main": "dist/coolgrid.umd.js",
+  "module": "dist/coolgrid.module.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf lib dist && babel src -d lib && cpr lib dist --delete-first && yarn rollup",
@@ -36,6 +36,9 @@
   "peerDependencies": {
     "react": ">= 16.3",
     "styled-components": ">= 4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -81,11 +84,8 @@
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.2",
-    "ts-jest": "^23.10.5",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
-  },
-  "dependencies": {
-    "lodash": "^4.17.11"
   }
 }
