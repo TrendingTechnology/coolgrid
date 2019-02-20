@@ -1,52 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
+import { pick, omit } from 'lodash'
 import RowCtx from '../Row/context'
 import Styled from './styled'
-import { Props, Context } from './types'
-import { calculateBreakpointOptions } from '../utils'
+import { calculateBreakpointOptions, extendCss } from '../utils'
 
 const RESERVED_WORDS = ['size', 'gap', 'padding']
 
-const Element = ({ tag, children, extendCss, ...props }: Props) => (
+const Element = ({ children, tag, css, ...props }) => (
   <RowCtx.Consumer>
-    {({
-      breakpoints,
-      breakpointKeys,
-      columns,
-      extendColCss,
-      ...ctx
-    }: Context) => {
+    {({ breakpoints, breakpointKeys, columns, colCss, baseSize, ...ctx }) => {
       const context = {
         ...pick(ctx, RESERVED_WORDS),
-        ...pick(props, RESERVED_WORDS),
+        ...pick(props, RESERVED_WORDS)
       }
 
       const breakpointKeyProps = {
         ...pick(ctx, breakpointKeys),
-        ...pick(props, breakpointKeys),
+        ...pick(props, breakpointKeys)
       }
 
       const breakpointOptions = calculateBreakpointOptions(
         breakpointKeys,
         breakpoints,
         { ...context, ...breakpointKeyProps },
-        ['size', 'padding', 'gap']
+        RESERVED_WORDS
       )
 
-      const css = extendCss || extendColCss
-      const Column = css
+      const cssHelper = extendCss(css || colCss)
+      const Column = cssHelper
         ? styled(Styled)`
-            ${css}
+            ${cssHelper}
           `
         : Styled
 
       return (
         <Column
-          // extendCss={extendCss || extendColCss}
+          as={tag}
           breakpoints={breakpointOptions}
           columns={columns}
+          baseSize={baseSize}
           {...omit(props, RESERVED_WORDS)}
         >
           {children}

@@ -64,7 +64,7 @@ const newViewports = {
 global.React = React
 global.storiesOf = storiesOf
 
-const req = require.context('../../examples', true, /\/*stories.tsx$/)
+const req = require.context('../../examples', true, /\/*stories.js$/)
 
 function loadStories() {
   req.keys().forEach(filename => req(filename))

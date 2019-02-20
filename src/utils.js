@@ -1,33 +1,48 @@
+import { css } from 'styled-components'
+
+// ------------------------------------------
+// extendCss utility
+// ------------------------------------------
+export const extendCss = value => {
+  if (!value) {
+    return undefined
+  }
+
+  if (typeof value === 'function') {
+    return value(css)
+  }
+
+  return css`
+    ${value}
+  `
+}
+
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (viewport: number, data?: string): string => {
+const mediaQuery = (viewport, baseSize, data?) => {
   if (!data) {
     return ''
   }
 
   if (viewport > 0) {
     return `
-    @media only screen and (min-width: ${viewport}px) {
-      ${data}
-    }
-  `
+      @media only screen and (min-width: ${viewport / baseSize}em) {
+        ${data}
+      }
+    `
   }
 
   return data
 }
 
-const generateMediaQueries = (
-  breakpoints: object,
-  css: (css: object) => string
-): string => {
+const generateMediaQueries = (breakpoints, baseSize, css) => {
   let result = ''
   const entries = Object.entries(breakpoints)
-
   for (const [, dimensions] of entries) {
     const { viewport } = dimensions
     if (dimensions.viewport >= 0) {
-      result += mediaQuery(viewport, css(dimensions))
+      result += mediaQuery(viewport, baseSize, css(dimensions))
     }
   }
 
@@ -37,37 +52,27 @@ const generateMediaQueries = (
 // ------------------------------------------
 // ROW and COL media query params calculation
 // ------------------------------------------
-const calc = (attr: string, key: string, props: number | object): any => {
-  const param: object | number | string = props[attr]
+const calc = (attr, key, props) => {
+  const param = props[attr]
 
   // param can be even zero, eg. gutter
   if (!param && param !== 0) {
     return null
   }
 
-  if (param && typeof param === 'object' && Object.keys(param).includes(key)) {
-    return param[key]
+  if (param && typeof param === 'object') {
+    if (Object.keys(param).includes(key)) {
+      return param[key]
+    } else {
+      return null
+    }
   }
 
   return param
 }
 
-interface AdditionalProps {
-  viewport?: number;
-  container?: number;
-  size?: number;
-  padding?: number;
-  gutter?: number;
-  gap?: number;
-}
-
-const calculateBreakpointOptions = (
-  keys: object,
-  breakpoints: object,
-  props: object,
-  attrs: string[]
-) => {
-  const result: object = Object.assign({}, breakpoints)
+const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
+  const result = Object.assign({}, breakpoints)
 
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
   // each breakpoint key should already contain viewport and container values,
@@ -83,6 +88,8 @@ const calculateBreakpointOptions = (
       if (value || value === 0) {
         additionalProps[element] = value
       }
+
+      // console.log(additionalProps)
     })
 
     const helper = props[key]

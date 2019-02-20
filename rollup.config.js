@@ -3,12 +3,13 @@ import resolve from 'rollup-plugin-node-resolve'
 import { uglify } from 'rollup-plugin-uglify'
 import { terser } from 'rollup-plugin-terser'
 
-const input = './lib/index.js'
+const input = 'lib/index.js'
 const globals = {
   react: 'React',
-  'styled-components': 'styled'
+  'styled-components': 'styled',
+  lodash: 'lodash'
 }
-const external = ['react', 'styled-components']
+const external = ['react', 'styled-components', 'lodash']
 
 export default [
   {
@@ -16,7 +17,9 @@ export default [
     output: {
       file: './dist/mosquito-grid.js',
       format: 'cjs',
-      globals: globals
+      name: 'mosquitoGrid',
+      globals: globals,
+      exports: 'named'
     },
     external: external,
     plugins: [resolve(), filesize()]

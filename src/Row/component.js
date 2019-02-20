@@ -1,26 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import pick from 'lodash/pick'
-import omit from 'lodash/omit'
+import { pick, omit } from 'lodash'
 import RowCtx from './context'
 import Styled from './styled'
+import { calculateBreakpointOptions, extendCss } from '../utils'
 import { Ctx as ContainerCtx } from '../Container'
-import { Props, Context } from './types'
-import { calculateBreakpointOptions } from '../utils'
 
-const RESERVED_WORDS: string[] = [
-  'size',
-  'gap',
-  'gutter',
-  'padding',
-  'columns',
-  'extendColCss',
-]
+const RESERVED_WORDS = ['size', 'gap', 'gutter', 'padding', 'columns', 'colCss']
 
-const Element = ({ children, tag, extendCss, ...props }: Props) => {
+const Element = ({ children, tag, css, ...props }) => {
   return (
     <ContainerCtx.Consumer>
-      {({ breakpoints, breakpointKeys, extendRowCss, ...ctx }: Context) => {
+      {({ breakpoints, breakpointKeys, baseSize, rowCss, ...ctx }) => {
         const breakpointOptions = calculateBreakpointOptions(
           breakpointKeys,
           breakpoints,
@@ -28,20 +19,21 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
           ['gap', 'gutter']
         )
 
-        const context: object = {
+        const context = {
           ...pick(ctx, RESERVED_WORDS),
           ...pick(props, RESERVED_WORDS),
+          baseSize,
         }
 
-        const breakpointValues: object = {
+        const breakpointValues = {
           ...pick(ctx, breakpointKeys),
           ...pick(props, breakpointKeys),
         }
 
-        const css = extendCss || extendRowCss
-        const Row = css
+        const cssHelper = extendCss(css || rowCss)
+        const Row = cssHelper
           ? styled(Styled)`
-              ${css}
+              ${cssHelper}
             `
           : Styled
 
@@ -49,6 +41,7 @@ const Element = ({ children, tag, extendCss, ...props }: Props) => {
           <Row
             as={tag}
             breakpoints={breakpointOptions}
+            baseSize={baseSize}
             {...omit(props, RESERVED_WORDS)}
           >
             <RowCtx.Provider
