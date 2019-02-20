@@ -4,7 +4,7 @@ import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = (css: any) => css`
+const colCss = css => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
@@ -13,7 +13,7 @@ const columnCss = (css: any) => css`
 storiesOf('Responsive Examples', module)
   .add('Defined column sizes on each Column component', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row gap={0}>
           <Col xs={12} md={4} lg={6}>
             xs:12, md:4, lg:6
@@ -39,7 +39,7 @@ storiesOf('Responsive Examples', module)
   })
   .add('Defined column sizes on Row component', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row gap={0} xs={12} md={4} lg={6}>
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
@@ -61,7 +61,7 @@ storiesOf('Responsive Examples', module)
   })
   .add('Defined column sizes on Container component', () => {
     return (
-      <Container colCss={columnCss} xs={12} md={4} lg={6}>
+      <Container colCss={colCss} xs={12} md={4} lg={6}>
         <Row gap={0} xs={6}>
           <Col size={4}>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
@@ -83,7 +83,7 @@ storiesOf('Responsive Examples', module)
   })
   .add('Overriding', () => {
     return (
-      <Container xs={12} md={4} lg={6} colCss={columnCss}>
+      <Container xs={12} md={4} lg={6} colCss={colCss}>
         <Row gap={0}>
           <Col>xs:12, md:4, lg:6</Col>
           <Col>xs:12, md:4, lg:6</Col>
@@ -113,7 +113,7 @@ storiesOf('Responsive Examples', module)
         xs={12}
         md={4}
         lg={6}
-        colCss={columnCss}
+        colCss={colCss}
         padding={{ xs: 30, md: 10, ld: 60 }}
       >
         <Row gap={0}>

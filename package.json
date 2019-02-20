@@ -18,7 +18,7 @@
   "scripts": {
     "build": "rm -rf lib dist && tsc && cpr lib dist --delete-first --filter=\\\\.js && yarn rollup",
     "storybook": "start-storybook -p 6006 -c tools/storybook",
-    "storybook:build": "build-storybook -c tools/storybook -o docs/storybook",
+    "storybook:build": "build-storybook -c tools/storybook -o docs/",
     "lint": "yarn lint:css && yarn lint:ts",
     "lint:css": "stylelint './src/**/*.ts*'",
     "lint:ts": "tslint -p ./tsconfig.json \"./src/**/*.ts*\"",

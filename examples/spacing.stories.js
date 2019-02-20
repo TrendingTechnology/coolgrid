@@ -4,7 +4,7 @@ import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = (css: any) => css`
+const colCss = css => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
@@ -13,7 +13,7 @@ const columnCss = (css: any) => css`
 storiesOf('Spacing Examples', module)
   .add('Row with 0px vs 10px gap', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row gap={0}>
           <Col size={4}>gap-0</Col>
           <Col size={4}>gap-0</Col>
@@ -35,7 +35,7 @@ storiesOf('Spacing Examples', module)
   })
   .add('Grid with 0px vs. 10px gap', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={4}>gap-0</Col>
           <Col size={4}>gap-0</Col>
@@ -63,7 +63,7 @@ storiesOf('Spacing Examples', module)
   })
   .add('Rows with different gaps', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col>gap-0</Col>
           <Col>gap-0</Col>
@@ -104,7 +104,7 @@ storiesOf('Spacing Examples', module)
   })
   .add('Rows with reset horizontal gaps', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row gap={10} gutter={0}>
           <Col size={4}>gap-0</Col>
           <Col size={4}>gap-0</Col>
@@ -133,12 +133,12 @@ storiesOf('Spacing Examples', module)
     )
   })
   .add('Columns with padding', () => {
-    const columnCss = (css: any) => css`
+    const colCss = css => css`
       background-color: #e0e0eb;
       border: 1px solid #b3b3cc;
     `
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row gap={10} gutter={0} padding={20}>
           <Col size={4}>gap-0</Col>
           <Col size={4}>gap-0</Col>

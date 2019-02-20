@@ -1,7 +1,6 @@
 import component from './component'
 import Ctx from './context'
-import { Props } from './types'
 
-export { Ctx, Props }
+export { Ctx }
 
 export default component

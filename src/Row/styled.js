@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
-import { StyledProps } from './types'
 
-const breakpointCss = ({ gap, gutter }: { gap?: number; gutter?: number }) => {
+const breakpointCss = ({ gap, gutter }) => {
   let result = ''
 
   if (gap) {
@@ -14,12 +13,12 @@ const breakpointCss = ({ gap, gutter }: { gap?: number; gutter?: number }) => {
   return result
 }
 
-export default styled.div<StyledProps>`
+export default styled.div`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   align-self: stretch;
 
-  ${({ breakpoints, baseSize }: { breakpoints: object; baseSize: number }) =>
+  ${({ breakpoints, baseSize }) =>
     breakpoints && generateMediaQueries(breakpoints, baseSize, breakpointCss)};
 `

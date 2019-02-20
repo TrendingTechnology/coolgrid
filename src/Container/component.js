@@ -3,18 +3,17 @@ import styled from 'styled-components'
 import { pick, omit } from 'lodash'
 import Context from './context'
 import Styled from './styled'
-import { Props } from './types'
 import defaultProps from './defaultProps'
 import { extendCss } from '../utils'
 
-const RESERVED_WORDS: string[] = [
+const RESERVED_WORDS = [
   'size',
   'gap',
   'padding',
   'gutter',
   'columns',
   'colCss',
-  'rowCss',
+  'rowCss'
 ]
 
 const Element = ({
@@ -25,8 +24,8 @@ const Element = ({
   baseSize,
   ...props
 }: Props) => {
-  const breakpointKeys: string[] = Object.keys(breakpoints)
-  const breakpointsProps: object = pick(props, breakpointKeys)
+  const breakpointKeys = Object.keys(breakpoints)
+  const breakpointsProps = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
 
   const cssHelper = extendCss(css)
@@ -49,7 +48,7 @@ const Element = ({
           breakpoints,
           baseSize,
           ...breakpointsProps,
-          ...context,
+          ...context
         }}
       >
         {children}

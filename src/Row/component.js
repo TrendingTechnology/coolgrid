@@ -5,21 +5,13 @@ import RowCtx from './context'
 import Styled from './styled'
 import { calculateBreakpointOptions, extendCss } from '../utils'
 import { Ctx as ContainerCtx } from '../Container'
-import { Props, Context } from './types'
 
-const RESERVED_WORDS: string[] = [
-  'size',
-  'gap',
-  'gutter',
-  'padding',
-  'columns',
-  'colCss',
-]
+const RESERVED_WORDS = ['size', 'gap', 'gutter', 'padding', 'columns', 'colCss']
 
-const Element = ({ children, tag, css, ...props }: Props) => {
+const Element = ({ children, tag, css, ...props }) => {
   return (
     <ContainerCtx.Consumer>
-      {({ breakpoints, breakpointKeys, baseSize, rowCss, ...ctx }: Context) => {
+      {({ breakpoints, breakpointKeys, baseSize, rowCss, ...ctx }) => {
         const breakpointOptions = calculateBreakpointOptions(
           breakpointKeys,
           breakpoints,
@@ -27,13 +19,13 @@ const Element = ({ children, tag, css, ...props }: Props) => {
           ['gap', 'gutter']
         )
 
-        const context: object = {
+        const context = {
           ...pick(ctx, RESERVED_WORDS),
           ...pick(props, RESERVED_WORDS),
           baseSize,
         }
 
-        const breakpointValues: object = {
+        const breakpointValues = {
           ...pick(ctx, breakpointKeys),
           ...pick(props, breakpointKeys),
         }

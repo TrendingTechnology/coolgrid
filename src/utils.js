@@ -3,7 +3,7 @@ import { css } from 'styled-components'
 // ------------------------------------------
 // extendCss utility
 // ------------------------------------------
-export const extendCss = (value: any): any => {
+export const extendCss = value => {
   if (!value) {
     return undefined
   }
@@ -20,11 +20,7 @@ export const extendCss = (value: any): any => {
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (
-  viewport: number,
-  baseSize: number,
-  data?: string
-): string => {
+const mediaQuery = (viewport, baseSize, data?) => {
   if (!data) {
     return ''
   }
@@ -40,11 +36,7 @@ const mediaQuery = (
   return data
 }
 
-const generateMediaQueries = (
-  breakpoints: object,
-  baseSize: number,
-  css: (css: object) => string
-): string => {
+const generateMediaQueries = (breakpoints, baseSize, css) => {
   let result = ''
   const entries = Object.entries(breakpoints)
   for (const [, dimensions] of entries) {
@@ -60,8 +52,8 @@ const generateMediaQueries = (
 // ------------------------------------------
 // ROW and COL media query params calculation
 // ------------------------------------------
-const calc = (attr: string, key: string, props: number | object): any => {
-  const param: object | number | string = props[attr]
+const calc = (attr, key, props) => {
+  const param = props[attr]
 
   // param can be even zero, eg. gutter
   if (!param && param !== 0) {
@@ -79,22 +71,8 @@ const calc = (attr: string, key: string, props: number | object): any => {
   return param
 }
 
-interface AdditionalProps {
-  viewport?: number
-  container?: number
-  size?: number
-  padding?: number
-  gutter?: number
-  gap?: number
-}
-
-const calculateBreakpointOptions = (
-  keys: object,
-  breakpoints: object,
-  props: object,
-  attrs: string[]
-) => {
-  const result: object = Object.assign({}, breakpoints)
+const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
+  const result = Object.assign({}, breakpoints)
 
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
   // each breakpoint key should already contain viewport and container values,

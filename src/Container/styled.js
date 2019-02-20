@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
-const breakpointCss = ({ container }: { container: number }) => {
+const breakpointCss = ({ container }) => {
   let result = ''
   if (container) {
     result += `
@@ -12,12 +12,7 @@ const breakpointCss = ({ container }: { container: number }) => {
   return result
 }
 
-interface Props {
-  breakpoints: object
-  baseSize: number
-}
-
-export default styled.div<Props>`
+export default styled.div`
   box-sizing: border-box;
   width: 100%;
   margin-right: auto;

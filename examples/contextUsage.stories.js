@@ -4,13 +4,13 @@ import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = (css: any) => css`
+const columnCss = css => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
 `
 
-const columnCss1 = (css: any) => css`
+const columnCss1 = css => css`
   background-color: #efefef;
   border: 1px solid #e0e0e0;
   padding: 20px;

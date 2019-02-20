@@ -37,6 +37,7 @@
     "src/**/*.stories.*",
     "src/**/stories.*",
     "src/**/*.test.*",
-    "src/**/__snapshots__/**/*"
+    "src/**/__snapshots__/**/*",
+    "src_typescript"
   ]
 }

@@ -3,29 +3,21 @@ import styled from 'styled-components'
 import { pick, omit } from 'lodash'
 import RowCtx from '../Row/context'
 import Styled from './styled'
-import { Props, Context } from './types'
 import { calculateBreakpointOptions, extendCss } from '../utils'
 
-const RESERVED_WORDS: string[] = ['size', 'gap', 'padding']
+const RESERVED_WORDS = ['size', 'gap', 'padding']
 
-const Element = ({ children, tag, css, ...props }: Props) => (
+const Element = ({ children, tag, css, ...props }) => (
   <RowCtx.Consumer>
-    {({
-      breakpoints,
-      breakpointKeys,
-      columns,
-      colCss,
-      baseSize,
-      ...ctx
-    }: Context) => {
+    {({ breakpoints, breakpointKeys, columns, colCss, baseSize, ...ctx }) => {
       const context = {
         ...pick(ctx, RESERVED_WORDS),
-        ...pick(props, RESERVED_WORDS),
+        ...pick(props, RESERVED_WORDS)
       }
 
       const breakpointKeyProps = {
         ...pick(ctx, breakpointKeys),
-        ...pick(props, breakpointKeys),
+        ...pick(props, breakpointKeys)
       }
 
       const breakpointOptions = calculateBreakpointOptions(

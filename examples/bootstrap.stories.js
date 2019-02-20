@@ -4,7 +4,7 @@ import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
 
-const columnCss = (css: any) => css`
+const colCss = css => css`
   background-color: #e0e0eb;
   border: 1px solid #b3b3cc;
   padding: 20px;
@@ -13,7 +13,7 @@ const columnCss = (css: any) => css`
 storiesOf('Bootstrap Grid Examples', module)
   .add('Three Equal Columns', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col />
           <Col />
@@ -24,7 +24,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('Three Equal Columns Using Numbers', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={4} />
           <Col size={4} />
@@ -41,7 +41,7 @@ storiesOf('Bootstrap Grid Examples', module)
 
   .add('Three Unequal columns', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={2} />
           <Col size={3} />
@@ -57,7 +57,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('Setting One Column Width', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col />
           <Col size={6} />
@@ -73,7 +73,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('More Equal Columns', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col />
           <Col />
@@ -97,7 +97,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('More Unequal Columns', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={8} />
           <Col size={4} />
@@ -119,7 +119,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('Equal Height', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col>
             Lorem ipsum dolor sit amet, cibo sensibus interesset no sit. Et
@@ -136,7 +136,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('Nested Columns', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={8}>
             <Row>
@@ -151,7 +151,7 @@ storiesOf('Bootstrap Grid Examples', module)
   })
   .add('Mix and Match', () => {
     return (
-      <Container colCss={columnCss}>
+      <Container colCss={colCss}>
         <Row>
           <Col size={6} sm={9}>
             col-6 col-sm-9
