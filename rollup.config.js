@@ -32,7 +32,7 @@ export default [
       globals: globals
     },
     external: external,
-    plugins: [resolve(), terser(), filesize()]
+    plugins: [resolve(), terser(), uglify(), filesize()]
   },
   {
     input: input,
