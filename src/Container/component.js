@@ -3,6 +3,7 @@ import { pick, omit, get } from 'lodash'
 import Context from './context'
 import Styled from './styled'
 import { extendCss } from '../utils'
+import theme from '../theme'
 
 const RESERVED_WORDS = ['size', 'gap', 'padding', 'gutter', 'colCss', 'rowCss']
 
@@ -51,5 +52,6 @@ const Element = ({
 }
 
 Element.displayName = 'mosquito-ui/grid/Container'
+Element.defaultProps = { ...theme }
 
 export default Element
