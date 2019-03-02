@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { get } from 'lodash'
 import { generateMediaQueries } from '../utils'
 
 const cssCreator = columns => ({ size, gap, padding }) => {
@@ -39,6 +40,11 @@ export default styled.div`
       ${extendCss}
     `}
 
-  ${({ breakpoints, columns, baseSize }) =>
-    generateMediaQueries(breakpoints, baseSize, cssCreator(columns))};
+  ${({ theme: t, breakpoints, columns, baseSize }) => {
+    const _breakpoints = breakpoints || get(t, 'grid.breakpoints', {})
+    const _baseSize = baseSize || get(t, 'grid.baseSize')
+    const _columns = columns || get(t, 'grid.columns')
+
+    return generateMediaQueries(_breakpoints, _baseSize, cssCreator(_columns))
+  }};
 `

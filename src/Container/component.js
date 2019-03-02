@@ -1,45 +1,45 @@
 import React from 'react'
-import { pick, omit } from 'lodash'
+import { pick, omit, get } from 'lodash'
 import Context from './context'
 import Styled from './styled'
-import defaultProps from './defaultProps'
 import { extendCss } from '../utils'
 
-const RESERVED_WORDS = [
-  'size',
-  'gap',
-  'padding',
-  'gutter',
-  'columns',
-  'colCss',
-  'rowCss'
-]
+const RESERVED_WORDS = ['size', 'gap', 'padding', 'gutter', 'colCss', 'rowCss']
 
 const Element = ({
+  theme,
   children,
   tag,
   css,
-  breakpoints = {},
+  breakpoints,
+  columns,
   baseSize,
   ...props
 }) => {
-  const breakpointKeys = Object.keys(breakpoints)
+  const gridConfiguration = {
+    ...get(theme, 'grid', {}),
+    ...(baseSize ? { baseSize } : {}),
+    ...(columns ? { columns } : {}),
+    ...(breakpoints ? { breakpoints } : {})
+  }
+
+  const breakpointKeys = Object.keys(gridConfiguration.breakpoints || {})
   const breakpointsProps = pick(props, breakpointKeys)
   const context = pick(props, RESERVED_WORDS)
+
+  // console.log(gridConfiguration)
 
   return (
     <Styled
       as={tag}
-      breakpoints={breakpoints}
-      baseSize={baseSize}
       extendCss={extendCss(css)}
+      {...gridConfiguration}
       {...omit(props, RESERVED_WORDS)}
     >
       <Context.Provider
         value={{
           breakpointKeys,
-          breakpoints,
-          baseSize,
+          ...gridConfiguration,
           ...breakpointsProps,
           ...context
         }}
@@ -51,6 +51,5 @@ const Element = ({
 }
 
 Element.displayName = 'mosquito-ui/grid/Container'
-Element.defaultProps = defaultProps
 
 export default Element

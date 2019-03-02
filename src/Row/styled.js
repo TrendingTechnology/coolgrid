@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { get } from 'lodash'
 import { generateMediaQueries } from '../utils'
 
 const breakpointCss = ({ gap, gutter }) => {
@@ -24,6 +25,13 @@ export default styled.div`
       ${extendCss}
     `}
 
-  ${({ breakpoints, baseSize }) =>
-    breakpoints && generateMediaQueries(breakpoints, baseSize, breakpointCss)};
+  ${({ theme: t, breakpoints, baseSize }) => {
+    const _breakpoints = breakpoints || get(t, 'grid.breakpoints', {})
+    const _baseSize = baseSize || get(t, 'grid.baseSize')
+
+    return (
+      breakpoints &&
+      generateMediaQueries(_breakpoints, _baseSize, breakpointCss)
+    )
+  }}
 `

@@ -1,5 +1,3 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
 import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'

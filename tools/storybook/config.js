@@ -1,6 +1,7 @@
 import React from 'react'
-import { configure, storiesOf } from '@storybook/react'
+import { configure, addDecorator, storiesOf } from '@storybook/react'
 import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import themeDecorator from './decorators/themeDecorator'
 
 const newViewports = {
   xs: {
@@ -74,5 +75,7 @@ configureViewport({
   viewports: { ...newViewports, ...INITIAL_VIEWPORTS },
   defaultViewport: 'xxl'
 })
+
+addDecorator(themeDecorator)
 
 configure(loadStories, module)

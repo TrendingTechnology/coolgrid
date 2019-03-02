@@ -1,5 +1,3 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
 import Container from '../src/Container'
 import Row from '../src/Row'
 import Col from '../src/Col'
@@ -60,16 +58,16 @@ storiesOf('Custom Grid Examples', module)
     const breakpoints = {
       phone: {
         viewport: 320,
-        container: 300,
+        container: 300
       },
       tablet: {
         viewport: 768,
-        container: 740,
+        container: 740
       },
       notebook: {
         viewport: 1366,
-        container: 1200,
-      },
+        container: 1200
+      }
     }
     return (
       <Container breakpoints={breakpoints} colCss={columnCss}>

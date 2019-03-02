@@ -37,6 +37,8 @@ const mediaQuery = (viewport, baseSize, data) => {
 }
 
 const generateMediaQueries = (breakpoints, baseSize, css) => {
+  if (!breakpoints) throw Error('Breakpoints are missing!')
+
   let result = ''
   const entries = Object.entries(breakpoints)
   for (const [, dimensions] of entries) {

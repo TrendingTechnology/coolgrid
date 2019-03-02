@@ -1,6 +1,7 @@
+import { withTheme } from 'styled-components'
 import component from './component'
 import Ctx from './context'
 
 export { Ctx }
 
-export default component
+export default withTheme(component)
