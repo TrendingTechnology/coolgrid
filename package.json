@@ -4,7 +4,7 @@
   "maintainers": [
     "Vit Bokisch <vit@bokisch.cz>"
   ],
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Ultra flexible and extensible grid system based on styled-components",
   "license": "MIT",
   "repository": {
