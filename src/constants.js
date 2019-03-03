@@ -1,0 +1,14 @@
+export const BASE_RESERVED_KEYS = ['breakpoints', 'baseSize', 'columns']
+
+export const COLUMN_RESERVED_KEYS = ['size', 'gap', 'padding']
+
+export const ROW_RESERVED_KEYS = COLUMN_RESERVED_KEYS.concat([
+  'gutter',
+  'colCss',
+  'colTag'
+])
+
+export const CONTAINER_RESERVED_KEYS = ROW_RESERVED_KEYS.concat([
+  'rowCss',
+  'rowTag'
+])

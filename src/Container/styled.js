@@ -8,7 +8,6 @@ const breakpointCss = ({ container }) => {
         max-width: ${container}px;
       `
   }
-
   return result
 }
 
@@ -18,11 +17,12 @@ export default styled.div`
   margin-right: auto;
   margin-left: auto;
 
+  ${({ theme: t }) =>
+    t.breakpoints &&
+    generateMediaQueries(t.breakpoints, t.baseSize, breakpointCss)};
+
   ${({ extendCss }) =>
     css`
       ${extendCss}
     `}
-
-  ${({ breakpoints, baseSize }) =>
-    generateMediaQueries(breakpoints, baseSize, breakpointCss)};
 `

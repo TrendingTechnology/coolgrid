@@ -1,4 +1,40 @@
 import { css } from 'styled-components'
+import { pick, omit } from 'lodash'
+import { BASE_RESERVED_KEYS } from './constants'
+
+export const createGridSettings = (props = {}, ctx = {}, theme = {}) => {
+  const config = {
+    ...pick(theme, BASE_RESERVED_KEYS),
+    ...pick(ctx, BASE_RESERVED_KEYS),
+    ...pick(props, BASE_RESERVED_KEYS)
+  }
+
+  return {
+    ...config,
+    breakpointKeys: Object.keys(config.breakpoints)
+  }
+}
+
+// ------------------------------------------
+// merging utility utility
+// ------------------------------------------
+export const mergePropsWithContext = (props, ctx, reservedKeys) => {
+  if (!reservedKeys) {
+    return Object.assign({}, ctx, props)
+  }
+
+  return {
+    ...pick(ctx, reservedKeys),
+    ...pick(props, reservedKeys)
+  }
+}
+
+// ------------------------------------------
+// merging utility utility
+// ------------------------------------------
+export const restProps = (props, reservedKeys) => {
+  return omit(props, reservedKeys)
+}
 
 // ------------------------------------------
 // extendCss utility

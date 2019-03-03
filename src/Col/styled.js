@@ -35,16 +35,12 @@ export default styled.div`
   flex-basis: 0;
   flex-grow: 1;
 
+  ${({ theme: t }) =>
+    t.breakpoints &&
+    generateMediaQueries(t.breakpoints, t.baseSize, cssCreator(t.columns))};
+
   ${({ extendCss }) =>
     css`
       ${extendCss}
     `}
-
-  ${({ theme: t, breakpoints, columns, baseSize }) => {
-    const _breakpoints = breakpoints || get(t, 'grid.breakpoints', {})
-    const _baseSize = baseSize || get(t, 'grid.baseSize')
-    const _columns = columns || get(t, 'grid.columns')
-
-    return generateMediaQueries(_breakpoints, _baseSize, cssCreator(_columns))
-  }};
 `

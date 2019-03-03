@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { configure, addDecorator, storiesOf } from '@storybook/react'
 import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import themeDecorator from './decorators/themeDecorator'
@@ -63,6 +63,7 @@ const newViewports = {
 }
 
 global.React = React
+global.Fragment = Fragment
 global.storiesOf = storiesOf
 
 const req = require.context('../../examples', true, /\/*stories.js$/)

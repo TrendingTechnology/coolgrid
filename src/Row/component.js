@@ -1,48 +1,57 @@
 import React from 'react'
-import { pick, omit } from 'lodash'
+import { get, pick } from 'lodash'
 import RowCtx from './context'
 import Styled from './styled'
-import { calculateBreakpointOptions, extendCss } from '../utils'
+import {
+  createGridSettings,
+  mergePropsWithContext,
+  restProps,
+  calculateBreakpointOptions,
+  extendCss
+} from '../utils'
 import { Ctx as ContainerCtx } from '../Container'
+import {
+  ROW_RESERVED_KEYS as RESERVED_KEYS,
+  BASE_RESERVED_KEYS
+} from '../constants'
 
-const RESERVED_WORDS = ['size', 'gap', 'gutter', 'padding', 'columns', 'colCss']
-
-const Element = ({ children, tag, css, ...props }) => {
+const Element = ({ theme, children, tag, css, ...props }) => {
   return (
     <ContainerCtx.Consumer>
-      {({ breakpoints, breakpointKeys, baseSize, rowCss, ...ctx }) => {
-        const breakpointOptions = calculateBreakpointOptions(
-          breakpointKeys,
-          breakpoints,
-          Object.assign({}, ctx, props),
+      {({ rowCss, rowTag, ...ctx }) => {
+        // output { breakpoints, baseSize, columns, breakpointKeys }
+        const gridConfiguration = createGridSettings(
+          props,
+          ctx,
+          get(theme, 'grid', {})
+        )
+
+        const enhancedBreakpoints = calculateBreakpointOptions(
+          gridConfiguration.breakpointKeys,
+          gridConfiguration.breakpoints,
+          mergePropsWithContext(props, ctx),
           ['gap', 'gutter']
         )
 
-        const context = {
-          ...pick(ctx, RESERVED_WORDS),
-          ...pick(props, RESERVED_WORDS),
-          baseSize
-        }
-
-        const breakpointValues = {
-          ...pick(ctx, breakpointKeys),
-          ...pick(props, breakpointKeys)
-        }
-
         return (
           <Styled
-            as={tag}
-            breakpoints={breakpointOptions}
-            baseSize={baseSize}
+            as={tag || rowTag}
             extendCss={extendCss(css || rowCss)}
-            {...omit(props, RESERVED_WORDS)}
+            theme={{
+              ...gridConfiguration,
+              breakpoints: enhancedBreakpoints
+            }}
+            {...restProps(props, RESERVED_KEYS)}
           >
             <RowCtx.Provider
               value={{
-                breakpointKeys,
-                breakpoints,
-                ...breakpointValues,
-                ...context
+                ...gridConfiguration,
+                ...mergePropsWithContext(
+                  props,
+                  ctx,
+                  gridConfiguration.breakpointKeys
+                ),
+                ...mergePropsWithContext(props, ctx, RESERVED_KEYS)
               }}
             >
               {children}

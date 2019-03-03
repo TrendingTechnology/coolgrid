@@ -20,18 +20,12 @@ export default styled.div`
   flex-wrap: wrap;
   align-self: stretch;
 
+  ${({ theme: t }) =>
+    t.breakpoints &&
+    generateMediaQueries(t.breakpoints, t.baseSize, breakpointCss)}};
+
   ${({ extendCss }) =>
     css`
       ${extendCss}
     `}
-
-  ${({ theme: t, breakpoints, baseSize }) => {
-    const _breakpoints = breakpoints || get(t, 'grid.breakpoints', {})
-    const _baseSize = baseSize || get(t, 'grid.baseSize')
-
-    return (
-      breakpoints &&
-      generateMediaQueries(_breakpoints, _baseSize, breakpointCss)
-    )
-  }}
 `

@@ -1,39 +1,39 @@
 import React from 'react'
-import { pick, omit } from 'lodash'
 import RowCtx from '../Row/context'
 import Styled from './styled'
-import { calculateBreakpointOptions, extendCss } from '../utils'
-
-const RESERVED_WORDS = ['size', 'gap', 'padding']
+import {
+  createGridSettings,
+  mergePropsWithContext,
+  restProps,
+  calculateBreakpointOptions,
+  extendCss
+} from '../utils'
+import { COLUMN_RESERVED_KEYS as RESERVED_KEYS } from '../constants'
 
 const Element = ({ children, tag, css, ...props }) => (
   <RowCtx.Consumer>
-    {({ breakpoints, breakpointKeys, columns, colCss, baseSize, ...ctx }) => {
-      const context = {
-        ...pick(ctx, RESERVED_WORDS),
-        ...pick(props, RESERVED_WORDS)
-      }
-
-      const breakpointKeyProps = {
-        ...pick(ctx, breakpointKeys),
-        ...pick(props, breakpointKeys)
-      }
+    {({ colCss, colTag, ...ctx }) => {
+      const gridConfiguration = createGridSettings({}, ctx, {})
 
       const breakpointOptions = calculateBreakpointOptions(
-        breakpointKeys,
-        breakpoints,
-        { ...context, ...breakpointKeyProps },
-        RESERVED_WORDS
+        gridConfiguration.breakpointKeys,
+        gridConfiguration.breakpoints,
+        {
+          ...mergePropsWithContext(props, ctx, RESERVED_KEYS),
+          ...mergePropsWithContext(props, ctx, gridConfiguration.breakpointKeys)
+        },
+        RESERVED_KEYS
       )
 
       return (
         <Styled
-          as={tag}
-          breakpoints={breakpointOptions}
-          columns={columns}
-          baseSize={baseSize}
+          as={tag || colTag}
           extendCss={extendCss(css || colCss)}
-          {...omit(props, RESERVED_WORDS)}
+          theme={{
+            ...gridConfiguration,
+            breakpoints: breakpointOptions
+          }}
+          {...restProps(props, RESERVED_KEYS)}
         >
           {children}
         </Styled>

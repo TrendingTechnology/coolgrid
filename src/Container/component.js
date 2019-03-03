@@ -1,48 +1,38 @@
 import React from 'react'
-import { pick, omit, get } from 'lodash'
+import { pick, get } from 'lodash'
 import Context from './context'
 import Styled from './styled'
-import { extendCss } from '../utils'
-import theme from '../theme'
+import {
+  restProps,
+  createGridSettings,
+  extendCss,
+  mergePropsWithContext
+} from '../utils'
+import {
+  CONTAINER_RESERVED_KEYS as RESERVED_KEYS,
+  BASE_RESERVED_KEYS
+} from '../constants'
 
-const RESERVED_WORDS = ['size', 'gap', 'padding', 'gutter', 'colCss', 'rowCss']
-
-const Element = ({
-  theme,
-  children,
-  tag,
-  css,
-  breakpoints,
-  columns,
-  baseSize,
-  ...props
-}) => {
-  const gridConfiguration = {
-    ...get(theme, 'grid', {}),
-    ...(baseSize ? { baseSize } : {}),
-    ...(columns ? { columns } : {}),
-    ...(breakpoints ? { breakpoints } : {})
-  }
-
-  const breakpointKeys = Object.keys(gridConfiguration.breakpoints || {})
-  const breakpointsProps = pick(props, breakpointKeys)
-  const context = pick(props, RESERVED_WORDS)
-
-  // console.log(gridConfiguration)
+const Element = ({ theme, children, tag, css, ...props }) => {
+  // output { breakpoints, baseSize, columns, breakpointKeys }
+  const gridConfiguration = createGridSettings(
+    props,
+    {},
+    get(theme, 'grid', {})
+  )
 
   return (
     <Styled
       as={tag}
       extendCss={extendCss(css)}
-      {...gridConfiguration}
-      {...omit(props, RESERVED_WORDS)}
+      theme={gridConfiguration}
+      {...restProps(props, [...RESERVED_KEYS, ...BASE_RESERVED_KEYS])}
     >
       <Context.Provider
         value={{
-          breakpointKeys,
           ...gridConfiguration,
-          ...breakpointsProps,
-          ...context
+          ...pick(props, gridConfiguration.breakpointKeys),
+          ...pick(props, RESERVED_KEYS)
         }}
       >
         {children}
@@ -52,6 +42,5 @@ const Element = ({
 }
 
 Element.displayName = 'mosquito-ui/grid/Container'
-Element.defaultProps = { ...theme }
 
 export default Element
