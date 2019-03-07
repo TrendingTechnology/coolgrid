@@ -1,0 +1,41 @@
+---
+name: Getting started
+route: /getting-started
+---
+
+# Getting started
+
+## Installation
+
+You can install ii with your preferred tool (`yarn` or `npm`).
+
+```
+# with yarn
+yarn add react-rasta
+
+# or with npm
+npm install react-rasta --save
+```
+
+## Dependencies
+
+Coolgrid depends on the following packages which need to be installed as well.
+
+|                   |         |
+| ----------------- | ------- |
+| react             | >= 16.3 |
+| styled-components | >= 4    |
+
+## ThemeProvider
+
+Don't forget to add coolstyle config into your `ThemeProvider` under `grid` key.
+
+```
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'coolstyle
+
+// you can import default bootstrap theme settings or create yours.
+<ThemeProvider theme={{ grid: theme }}>
+  {/* ...your components */}
+</ThemeProvider>
+```
