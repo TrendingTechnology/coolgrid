@@ -1,7 +1,7 @@
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin')
 const { CheckerPlugin } = require('awesome-typescript-loader')
 
-module.exports = (baseConfig, env, config) => {
+module.exports = ({ config }) => {
   // TYPESCRIPT support
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
