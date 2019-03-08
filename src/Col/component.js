@@ -1,34 +1,28 @@
 import React from 'react'
-import RowCtx from '../Row/context'
-import Styled from './styled'
 import {
   createGridSettings,
-  mergePropsWithContext,
+  mergeObjects,
   omittedProps,
   calculateBreakpointOptions,
   extendCss
 } from '../utils'
 import { COLUMN_RESERVED_KEYS as RESERVED_KEYS } from '../constants'
+import RowCtx from '../Row/context'
+import Styled from './styled'
 
 const Element = ({ children, tag, css, ...props }) => (
   <RowCtx.Consumer>
     {({ colCss, colTag, ...ctx }) => {
       const gridConfiguration = createGridSettings({}, ctx, {})
 
+      delete props.gap
+
       const breakpointOptions = calculateBreakpointOptions(
         gridConfiguration.breakpointKeys,
         gridConfiguration.breakpoints,
         {
-          ...mergePropsWithContext(
-            omittedProps(props, ['gap']),
-            ctx,
-            RESERVED_KEYS
-          ),
-          ...mergePropsWithContext(
-            omittedProps(props, ['gap']),
-            ctx,
-            gridConfiguration.breakpointKeys
-          )
+          ...mergeObjects(props, ctx, RESERVED_KEYS),
+          ...mergeObjects(props, ctx, gridConfiguration.breakpointKeys)
         },
         RESERVED_KEYS
       )
@@ -50,6 +44,6 @@ const Element = ({ children, tag, css, ...props }) => (
   </RowCtx.Consumer>
 )
 
-Element.displayName = 'mosquito-ui/grid/Col'
+Element.displayName = 'vitus-labs/coolgrid/Col'
 
 export default Element

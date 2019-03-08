@@ -1,38 +1,33 @@
 import React from 'react'
-import { pick, get } from 'lodash'
-import Context from './context'
-import Styled from './styled'
 import {
   omittedProps,
+  mergeObjects,
   createGridSettings,
-  extendCss,
-  mergePropsWithContext
+  extendCss
 } from '../utils'
 import {
   CONTAINER_RESERVED_KEYS as RESERVED_KEYS,
   BASE_RESERVED_KEYS
 } from '../constants'
+import Context from './context'
+import Styled from './styled'
 
 const Element = ({ theme, children, tag, css, ...props }) => {
   // output { breakpoints, baseSize, columns, breakpointKeys }
-  const gridConfiguration = createGridSettings(
-    props,
-    {},
-    get(theme, 'grid', {})
-  )
+  const gridSettings = createGridSettings(props, {}, theme)
 
   return (
     <Styled
       as={tag}
       extendCss={extendCss(css)}
-      theme={gridConfiguration}
+      theme={gridSettings}
       {...omittedProps(props, [...RESERVED_KEYS, ...BASE_RESERVED_KEYS])}
     >
       <Context.Provider
         value={{
-          ...gridConfiguration,
-          ...pick(props, gridConfiguration.breakpointKeys),
-          ...pick(props, RESERVED_KEYS)
+          ...gridSettings,
+          ...mergeObjects(props, {}, gridSettings.breakpointKeys), // pass breakpoint key props, e.g xs, md, lg
+          ...mergeObjects(props, {}, RESERVED_KEYS)
         }}
       >
         {children}
@@ -41,6 +36,6 @@ const Element = ({ theme, children, tag, css, ...props }) => {
   )
 }
 
-Element.displayName = 'mosquito-ui/grid/Container'
+Element.displayName = 'vitus-labs/coolgrid/Container'
 
 export default Element

@@ -1,35 +1,30 @@
 import React from 'react'
-import { get, pick } from 'lodash'
-import RowCtx from './context'
-import Styled from './styled'
 import {
   createGridSettings,
-  mergePropsWithContext,
+  mergeObjects,
   omittedProps,
   calculateBreakpointOptions,
   extendCss
 } from '../utils'
-import { Ctx as ContainerCtx } from '../Container'
 import {
   ROW_RESERVED_KEYS as RESERVED_KEYS,
   BASE_RESERVED_KEYS
 } from '../constants'
+import { Ctx as ContainerCtx } from '../Container'
+import RowCtx from './context'
+import Styled from './styled'
 
 const Element = ({ theme, children, tag, css, ...props }) => {
   return (
     <ContainerCtx.Consumer>
       {({ rowCss, rowTag, ...ctx }) => {
         // output { breakpoints, baseSize, columns, breakpointKeys }
-        const gridConfiguration = createGridSettings(
-          props,
-          ctx,
-          get(theme, 'grid', {})
-        )
+        const gridSettings = createGridSettings(props, ctx, theme)
 
-        const enhancedBreakpoints = calculateBreakpointOptions(
-          gridConfiguration.breakpointKeys,
-          gridConfiguration.breakpoints,
-          mergePropsWithContext(props, ctx),
+        const breakpointOptions = calculateBreakpointOptions(
+          gridSettings.breakpointKeys,
+          gridSettings.breakpoints,
+          mergeObjects(props, ctx),
           ['gap', 'gutter']
         )
 
@@ -38,20 +33,16 @@ const Element = ({ theme, children, tag, css, ...props }) => {
             as={tag || rowTag}
             extendCss={extendCss(css || rowCss)}
             theme={{
-              ...gridConfiguration,
-              breakpoints: enhancedBreakpoints
+              ...gridSettings,
+              breakpoints: breakpointOptions
             }}
             {...omittedProps(props, RESERVED_KEYS)}
           >
             <RowCtx.Provider
               value={{
-                ...gridConfiguration,
-                ...mergePropsWithContext(
-                  props,
-                  ctx,
-                  gridConfiguration.breakpointKeys
-                ),
-                ...mergePropsWithContext(props, ctx, RESERVED_KEYS)
+                ...gridSettings,
+                ...mergeObjects(props, ctx, gridSettings.breakpointKeys),
+                ...mergeObjects(props, ctx, RESERVED_KEYS)
               }}
             >
               {children}
@@ -63,6 +54,6 @@ const Element = ({ theme, children, tag, css, ...props }) => {
   )
 }
 
-Element.displayName = 'mosquito-ui/grid/Row'
+Element.displayName = 'vitus-labs/coolgrid/Row'
 
 export default Element

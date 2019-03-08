@@ -1,10 +1,14 @@
 import { css } from 'styled-components'
-import { pick, omit } from 'lodash'
+import { get, pick, omit } from 'lodash'
 import { BASE_RESERVED_KEYS } from './constants'
 
+// ------------------------------------------
+// create grid settings
+// ------------------------------------------
 export const createGridSettings = (props = {}, ctx = {}, theme = {}) => {
+  const gridTheme = get(theme, 'grid', {})
   const config = {
-    ...pick(theme, BASE_RESERVED_KEYS),
+    ...pick(gridTheme, BASE_RESERVED_KEYS),
     ...pick(ctx, BASE_RESERVED_KEYS),
     ...pick(props, BASE_RESERVED_KEYS)
   }
@@ -16,12 +20,10 @@ export const createGridSettings = (props = {}, ctx = {}, theme = {}) => {
 }
 
 // ------------------------------------------
-// merging utility utility
+// merging utility
 // ------------------------------------------
-export const mergePropsWithContext = (props = {}, ctx = {}, reservedKeys) => {
-  if (!reservedKeys) {
-    return Object.assign({}, ctx, props)
-  }
+export const mergeObjects = (props = {}, ctx = {}, reservedKeys) => {
+  if (!reservedKeys) return Object.assign({}, ctx, props)
 
   return {
     ...pick(ctx, reservedKeys),
@@ -30,7 +32,7 @@ export const mergePropsWithContext = (props = {}, ctx = {}, reservedKeys) => {
 }
 
 // ------------------------------------------
-// merging utility utility
+// omitting keys utility
 // ------------------------------------------
 export const omittedProps = (props = {}, reservedKeys) => {
   return omit(props, reservedKeys)
@@ -40,13 +42,8 @@ export const omittedProps = (props = {}, reservedKeys) => {
 // extendCss utility
 // ------------------------------------------
 export const extendCss = value => {
-  if (!value) {
-    return undefined
-  }
-
-  if (typeof value === 'function') {
-    return value(css)
-  }
+  if (!value) return undefined
+  if (typeof value === 'function') return value(css)
 
   return css`
     ${value}
@@ -57,13 +54,13 @@ export const extendCss = value => {
 // media query css generator
 // ------------------------------------------
 const mediaQuery = (viewport, baseSize, data) => {
-  if (!data) {
-    return ''
-  }
+  if (!data) return ''
 
   if (viewport > 0) {
+    const edgeValue = baseSize ? `${viewport / baseSize}em` : `${viewport}px`
+
     return `
-      @media only screen and (min-width: ${viewport / baseSize}em) {
+      @media only screen and (min-width: ${edgeValue}) {
         ${data}
       }
     `
@@ -72,11 +69,12 @@ const mediaQuery = (viewport, baseSize, data) => {
   return data
 }
 
-const generateMediaQueries = ({ breakpoints, baseSize }, css) => {
+export const generateMediaQueries = ({ breakpoints, baseSize }, css) => {
   if (!breakpoints) throw Error('Breakpoints are missing!')
 
   let result = ''
   const entries = Object.entries(breakpoints)
+
   for (const [, dimensions] of entries) {
     const { viewport } = dimensions
     if (dimensions.viewport >= 0) {
@@ -94,9 +92,7 @@ const calc = (attr, key, props) => {
   const param = props[attr]
 
   // param can be even zero, eg. gutter
-  if (!param && param !== 0) {
-    return null
-  }
+  if (!param && param !== 0) return null
 
   if (param && typeof param === 'object') {
     if (Object.keys(param).includes(key)) {
@@ -109,7 +105,7 @@ const calc = (attr, key, props) => {
   return param
 }
 
-const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
+export const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
   const result = Object.assign({}, breakpoints)
 
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
@@ -125,8 +121,6 @@ const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
       if (value || value === 0) {
         additionalProps[element] = value
       }
-
-      // console.log(additionalProps)
     })
 
     const helper = props[key]
@@ -151,5 +145,3 @@ const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
 
   return result
 }
-
-export { generateMediaQueries, calculateBreakpointOptions }
