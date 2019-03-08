@@ -16,7 +16,7 @@ module.exports = {
   },
   snapshotSerializers: ['enzyme-to-json/serializer'],
   roots: ['<rootDir>./src/'],
-  setupTestFrameworkScriptFile: './tools/jest/config.ts',
+  setupFilesAfterEnv: ['./tools/jest/config.ts'],
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.json',
