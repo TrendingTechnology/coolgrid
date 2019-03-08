@@ -15,6 +15,7 @@ const Element = ({ children, tag, css, ...props }) => (
     {({ colCss, colTag, ...ctx }) => {
       const gridConfiguration = createGridSettings({}, ctx, {})
 
+      // delete gap, it can be passed only via context from Container or Row
       delete props.gap
 
       const breakpointOptions = calculateBreakpointOptions(
