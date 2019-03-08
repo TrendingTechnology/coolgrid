@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vitbokisch/coolgrid"
+    "url": "https://github.com/vitus-labs/coolgrid"
   },
   "main": "dist/coolgrid.js",
   "umd:main": "dist/coolgrid.umd.js",
