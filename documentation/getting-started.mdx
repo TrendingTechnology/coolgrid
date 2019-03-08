@@ -1,15 +1,26 @@
 ---
 name: Getting started
-route: /getting-started
+route: /
 ---
 
 # Getting started
+
+Coolgrid is ultra flexible and extensible grid system for React
+based on styled-components and heavily inspired by
+Bootstrap Grid system.
+
+## Motivation
+
+There are several grid solutions but none of them have fit my
+needs so far. They were not enough extensible. With Coolgrid
+you can do basically whatever you want while writing less code
+and have less dom elements in your application.
 
 ## Installation
 
 You can install ii with your preferred tool (`yarn` or `npm`).
 
-```
+```powershell
 # with yarn
 yarn add react-rasta
 
@@ -30,7 +41,7 @@ Coolgrid depends on the following packages which need to be installed as well.
 
 Don't forget to add coolstyle config into your `ThemeProvider` under `grid` key.
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'coolstyle
 
@@ -38,4 +49,42 @@ import { theme } from 'coolstyle
 <ThemeProvider theme={{ grid: theme }}>
   {/* ...your components */}
 </ThemeProvider>
+```
+
+## Code examples
+
+```jsx
+import React from 'react'
+import { Container, Row, Col } from 'coolgrid'
+
+const Element = () => (
+  <Container>
+    <Row>
+      <Col size={3}>Column 1</Col>
+      <Col size={{ xs: 12, sm: 6, md: 3 }}>Column 2</Col>
+      <Col size={{ xs: 9, md: 3 }}>Column 3</Col>
+      <Col size={3}>Column 4</Col>
+    </Row>
+  </Container>
+)
+```
+
+You can define Col properties in Container or Row component.
+It uses context in the background. It means you can even
+write less code.
+
+```jsx
+import React from 'react'
+import { Container, Row, Col } from 'coolgrid'
+
+const Element = () => (
+  <Container>
+    <Row size={{ xs: 12, sm: 6, md: 3 }}>
+      <Col>Column 1</Col>
+      <Col size={4}>Column 2</Col>
+      <Col>Column 3</Col>
+      <Col size={3}>Column 4</Col>
+    </Row>
+  </Container>
+)
 ```

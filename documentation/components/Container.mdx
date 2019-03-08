@@ -11,7 +11,7 @@ route: /components/container
 Use default grid settings by importing it to styled-components
 `<ThemeProvider>`
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { Container, Row, Col, theme } from 'coolstyle
 
@@ -26,7 +26,7 @@ import { Container, Row, Col, theme } from 'coolstyle
 or create your own grid configuration. There are several approaches
 how you can achieve this.
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'coolstyle
 
@@ -56,7 +56,7 @@ import { theme } from 'coolstyle
 
 You can also use `breakpoint keys` as a properties. The example would be following:
 
-```
+```jsx
   const xs = {
     padding: 10,
     gap: 10,

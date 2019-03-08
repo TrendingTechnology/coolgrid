@@ -11,7 +11,7 @@ route: /customization/customize-theme
 Below is how default grid theme looks like. It is _important_
 to implement it into your provider under `grid` key.
 
-```
+```jsx
 {
   baseSize: 16,
   columns: 12,
@@ -53,7 +53,7 @@ to `em` units. If you do not specify baseSize, it will fallback to pixels.
 
 Below, you can see how to change count of columns:
 
-```
+```jsx
 {
   columns: 7,
   // ...rest
@@ -62,7 +62,7 @@ Below, you can see how to change count of columns:
 
 Below, you can see customized breakpoints.
 
-```
+```jsx
 {
   breakpoints: {
     phone: {
@@ -87,7 +87,7 @@ Below, you can see customized breakpoints.
 
 You can even override cofiguration for only one Container.
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { Container, Row, Col, theme } from 'coolstyle
 
@@ -118,7 +118,7 @@ const breakpoints = {
 
 You can even override cofiguration for each Row separately.
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { Container, Row, Col, theme } from 'coolstyle
 
@@ -147,7 +147,7 @@ const breakpoints = {
 
 or pass it via `<ThemeProvider>`:
 
-```
+```jsx
 import { ThemeProvider } from 'styled-components'
 import { Container, Row, Col, theme } from 'coolstyle
 
