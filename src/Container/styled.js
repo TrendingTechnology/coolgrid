@@ -17,9 +17,7 @@ export default styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  ${({ theme: t }) =>
-    t.breakpoints &&
-    generateMediaQueries(t.breakpoints, t.baseSize, breakpointCss)};
+  ${({ theme: t }) => t.breakpoints && generateMediaQueries(t, breakpointCss)};
 
   ${({ extendCss }) =>
     css`

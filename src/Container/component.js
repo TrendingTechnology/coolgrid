@@ -3,7 +3,7 @@ import { pick, get } from 'lodash'
 import Context from './context'
 import Styled from './styled'
 import {
-  restProps,
+  omittedProps,
   createGridSettings,
   extendCss,
   mergePropsWithContext
@@ -26,7 +26,7 @@ const Element = ({ theme, children, tag, css, ...props }) => {
       as={tag}
       extendCss={extendCss(css)}
       theme={gridConfiguration}
-      {...restProps(props, [...RESERVED_KEYS, ...BASE_RESERVED_KEYS])}
+      {...omittedProps(props, [...RESERVED_KEYS, ...BASE_RESERVED_KEYS])}
     >
       <Context.Provider
         value={{

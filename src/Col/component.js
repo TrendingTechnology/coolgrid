@@ -4,7 +4,7 @@ import Styled from './styled'
 import {
   createGridSettings,
   mergePropsWithContext,
-  restProps,
+  omittedProps,
   calculateBreakpointOptions,
   extendCss
 } from '../utils'
@@ -19,8 +19,16 @@ const Element = ({ children, tag, css, ...props }) => (
         gridConfiguration.breakpointKeys,
         gridConfiguration.breakpoints,
         {
-          ...mergePropsWithContext(props, ctx, RESERVED_KEYS),
-          ...mergePropsWithContext(props, ctx, gridConfiguration.breakpointKeys)
+          ...mergePropsWithContext(
+            omittedProps(props, ['gap']),
+            ctx,
+            RESERVED_KEYS
+          ),
+          ...mergePropsWithContext(
+            omittedProps(props, ['gap']),
+            ctx,
+            gridConfiguration.breakpointKeys
+          )
         },
         RESERVED_KEYS
       )
@@ -33,7 +41,7 @@ const Element = ({ children, tag, css, ...props }) => (
             ...gridConfiguration,
             breakpoints: breakpointOptions
           }}
-          {...restProps(props, RESERVED_KEYS)}
+          {...omittedProps(props, RESERVED_KEYS)}
         >
           {children}
         </Styled>

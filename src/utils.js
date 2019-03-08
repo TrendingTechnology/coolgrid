@@ -18,7 +18,7 @@ export const createGridSettings = (props = {}, ctx = {}, theme = {}) => {
 // ------------------------------------------
 // merging utility utility
 // ------------------------------------------
-export const mergePropsWithContext = (props, ctx, reservedKeys) => {
+export const mergePropsWithContext = (props = {}, ctx = {}, reservedKeys) => {
   if (!reservedKeys) {
     return Object.assign({}, ctx, props)
   }
@@ -32,7 +32,7 @@ export const mergePropsWithContext = (props, ctx, reservedKeys) => {
 // ------------------------------------------
 // merging utility utility
 // ------------------------------------------
-export const restProps = (props, reservedKeys) => {
+export const omittedProps = (props = {}, reservedKeys) => {
   return omit(props, reservedKeys)
 }
 
@@ -72,7 +72,7 @@ const mediaQuery = (viewport, baseSize, data) => {
   return data
 }
 
-const generateMediaQueries = (breakpoints, baseSize, css) => {
+const generateMediaQueries = ({ breakpoints, baseSize }, css) => {
   if (!breakpoints) throw Error('Breakpoints are missing!')
 
   let result = ''
@@ -115,7 +115,6 @@ const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
   // iterates over breakpoint keys like sm, md, lg, xl, xxl or mobile, desktop, etc.
   // each breakpoint key should already contain viewport and container values,
   // so we extend this for additional values like gap, padding or size
-  // @ts-ignore
   for (const key of keys) {
     let additionalProps = {}
 

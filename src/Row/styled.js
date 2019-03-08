@@ -20,9 +20,7 @@ export default styled.div`
   flex-wrap: wrap;
   align-self: stretch;
 
-  ${({ theme: t }) =>
-    t.breakpoints &&
-    generateMediaQueries(t.breakpoints, t.baseSize, breakpointCss)}};
+  ${({ theme: t }) => t.breakpoints && generateMediaQueries(t, breakpointCss)}};
 
   ${({ extendCss }) =>
     css`

@@ -5,7 +5,7 @@ import Styled from './styled'
 import {
   createGridSettings,
   mergePropsWithContext,
-  restProps,
+  omittedProps,
   calculateBreakpointOptions,
   extendCss
 } from '../utils'
@@ -41,7 +41,7 @@ const Element = ({ theme, children, tag, css, ...props }) => {
               ...gridConfiguration,
               breakpoints: enhancedBreakpoints
             }}
-            {...restProps(props, RESERVED_KEYS)}
+            {...omittedProps(props, RESERVED_KEYS)}
           >
             <RowCtx.Provider
               value={{

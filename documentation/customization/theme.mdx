@@ -1,0 +1,183 @@
+---
+name: Customize theme
+menu: Customization
+route: /customization/customize-theme
+---
+
+# Customize theme
+
+## Default theme
+
+Below is how default grid theme looks like. It is _important_
+to implement it into your provider under `grid` key.
+
+```
+{
+  baseSize: 16,
+  columns: 12,
+  breakpoints: {
+    xs: {
+      viewport: 0,
+      container: 0
+    },
+    sm: {
+      viewport: 576,
+      container: 540
+    },
+    md: {
+      viewport: 778,
+      container: 720
+    },
+    lg: {
+      viewport: 992,
+      container: 960
+    },
+    xl: {
+      viewport: 1200,
+      container: 1140
+    }
+  }
+}
+```
+
+## Create your own theme
+
+You can change count of `columns`, or define your own `breakpoints`.
+
+### Customized breakpoints
+
+For the smallest screen, you must set viewport to `0`. For the other viewport
+properties you can set `viewport` and `container` size in pixels (without unit).
+If you set `baseSize`, your defined sizes od viewports will be recalculated
+to `em` units. If you do not specify baseSize, it will fallback to pixels.
+
+Below, you can see how to change count of columns:
+
+```
+{
+  columns: 7,
+  // ...rest
+}
+```
+
+Below, you can see customized breakpoints.
+
+```
+{
+  breakpoints: {
+    phone: {
+      viewport: 320,
+      container: 300
+    },
+    tablet: {
+      viewport: 768,
+      container: 740
+    },
+    notebook: {
+      viewport: 1366,
+      container: 1200
+    }
+  }
+  // ...rest
+}
+
+```
+
+### Override settings in Container
+
+You can even override cofiguration for only one Container.
+
+```
+import { ThemeProvider } from 'styled-components'
+import { Container, Row, Col, theme } from 'coolstyle
+
+const breakpoints = {
+  phone: {
+    viewport: 320,
+    container: 300
+  },
+  tablet: {
+    viewport: 768,
+    container: 740
+  },
+  notebook: {
+    viewport: 1366,
+    container: 1200
+  }
+}
+
+<ThemeProvider theme={{ grid: theme }}>
+  <Container columns={7} breakpoints={breakpoints}>
+    <Row>...</Row>
+    <Row>...</Row>
+  </Container>
+</ThemeProvider>
+```
+
+### Override settings in Row
+
+You can even override cofiguration for each Row separately.
+
+```
+import { ThemeProvider } from 'styled-components'
+import { Container, Row, Col, theme } from 'coolstyle
+
+const breakpoints = {
+  phone: {
+    viewport: 320,
+    container: 300
+  },
+  tablet: {
+    viewport: 768,
+    container: 740
+  },
+  notebook: {
+    viewport: 1366,
+    container: 1200
+  }
+}
+
+<ThemeProvider theme={{ grid: theme }}>
+  <Container>
+    <Row columns={7} breakpoints={breakpoints}>...</Row>
+    <Row columns={5} breakpoints={breakpoints}>...</Row>
+  </Container>
+</ThemeProvider>
+```
+
+or pass it via `<ThemeProvider>`:
+
+```
+import { ThemeProvider } from 'styled-components'
+import { Container, Row, Col, theme } from 'coolstyle
+
+const breakpoints = {
+  phone: {
+    viewport: 320,
+    container: 300
+  },
+  tablet: {
+    viewport: 768,
+    container: 740
+  },
+  notebook: {
+    viewport: 1366,
+    container: 1200
+  }
+}
+
+<ThemeProvider theme={{ grid: theme }}>
+  <Container>
+    <ThemeProvider
+      theme={grid: {
+        breakpoints,
+        columns: 7,
+        baseSize: 16
+      }}
+    >
+      <Row columns={7} breakpoints={breakpoints}>...</Row>
+    </ThemeProvider>
+    <Row columns={5} breakpoints={breakpoints}>...</Row>
+  </Container>
+</ThemeProvider>
+```
