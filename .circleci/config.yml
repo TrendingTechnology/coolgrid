@@ -53,8 +53,7 @@ jobs:
       - run: yarn build
 
       # - run: yarn test:coverage
-
-      - run: yarn cover
+      # - run: yarn cover
 
 workflows:
   version: 2
