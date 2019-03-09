@@ -1,4 +1,8 @@
-![Coolgrid](https://raw.githubusercontent.com/vitus-labs/coolgrid/master/documentation/logo.png)
+<div align="center">
+  <a href="https://vitus-labs.github.io/coolgrid/">
+    <img src="https://raw.githubusercontent.com/vitus-labs/coolgrid/master/documentation/logo.png" alt="Coolgrid" height="150">
+  </a>
+</div>
 
 Coolgrid is ultra flexible and extensible grid system for React based on styled-components and heavily inspired by Bootstrap Grid system.
 
