@@ -1,4 +1,4 @@
-# Welcome to Coolgrid
+![Coolgrid](https://raw.githubusercontent.com/vitus-labs/coolgrid/master/documentation/logo.png)
 
 Coolgrid is ultra flexible and extensible grid system for React based on styled-components and heavily inspired by Bootstrap Grid system.
 
