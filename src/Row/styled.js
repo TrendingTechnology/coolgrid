@@ -3,15 +3,8 @@ import { get } from 'lodash'
 import { generateMediaQueries } from '../utils'
 
 const breakpointCss = ({ gap, gutter }) => {
-  let result = ''
-
-  if (gap) {
-    result += `
-        margin: ${gutter === 0 ? (-1 * gap) / 2 : gap / 2}px -${gap / 2}px;
-      `
-  }
-
-  return result
+  if (!gap) return ''
+  return `margin: ${gutter === 0 ? (-1 * gap) / 2 : gap / 2}px -${gap / 2}px;`
 }
 
 export default styled.div`

@@ -50,14 +50,34 @@ export const extendCss = value => {
   `
 }
 
+export const stripUnit = (value, unitReturn) => {
+  const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
+  if (typeof value !== 'string') return unitReturn ? [value, undefined] : value
+  const matchedValue = value.match(cssRegex)
+
+  if (unitReturn) {
+    if (matchedValue) return [parseFloat(value), matchedValue[2]]
+    return [value, undefined]
+  }
+
+  if (matchedValue) return parseFloat(value)
+  return value
+}
+
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
 const mediaQuery = (viewport, baseSize, data) => {
   if (!data) return ''
+  const [value, unit] = stripUnit(viewport, true)
 
-  if (viewport > 0) {
-    const edgeValue = baseSize ? `${viewport / baseSize}em` : `${viewport}px`
+  if (value > 0) {
+    let edgeValue = viewport
+
+    if (!unit || unit === 'px') {
+      if (baseSize) edgeValue = `${value / baseSize}em`
+      else `${value}px`
+    }
 
     return `
       @media only screen and (min-width: ${edgeValue}) {
@@ -77,7 +97,7 @@ export const generateMediaQueries = ({ breakpoints, baseSize }, css) => {
 
   for (const [, dimensions] of entries) {
     const { viewport } = dimensions
-    if (dimensions.viewport >= 0) {
+    if (stripUnit(dimensions.viewport) >= 0) {
       result += mediaQuery(viewport, baseSize, css(dimensions))
     }
   }

@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components'
-import { generateMediaQueries } from '../utils'
+import { generateMediaQueries, stripUnit } from '../utils'
 
 const breakpointCss = ({ container }) => {
-  let result = ''
-  if (container) {
-    result += `
-        max-width: ${container}px;
-      `
-  }
-  return result
+  const [value, unit] = stripUnit(container, true)
+
+  let maxWidth = container
+  if (!unit) maxWidth = `${value}px`
+
+  if (!container) return ''
+  return `max-width: ${maxWidth};`
 }
 
 export default styled.div`
