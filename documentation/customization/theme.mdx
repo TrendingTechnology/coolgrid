@@ -83,6 +83,31 @@ Below, you can see customized breakpoints.
 
 ```
 
+You can also use units in `viewport` or `container` key. When value
+is a number it fallbacks to `px`, or when baseSize is set it will
+be calculated to `em`s, for example:
+
+```jsx
+{
+  breakpoints: {
+    phone: {
+      viewport: '320px',
+      container: '100%'
+    },
+    tablet: {
+      viewport: '768px',
+      container: 740
+    },
+    notebook: {
+      viewport: '1366px',
+      container: '1200px'
+    }
+  }
+  // ...rest
+}
+
+```
+
 ### Override settings in Container
 
 You can even override cofiguration for only one Container.
