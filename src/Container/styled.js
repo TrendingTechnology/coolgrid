@@ -19,8 +19,7 @@ export default styled.div`
 
   ${({ theme: t }) => t.breakpoints && generateMediaQueries(t, breakpointCss)};
 
-  ${({ extendCss }) =>
-    css`
-      ${extendCss}
-    `}
+  ${({ extendCss }) => css`
+    ${extendCss}
+  `};
 `

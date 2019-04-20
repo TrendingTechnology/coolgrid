@@ -34,9 +34,7 @@ export const mergeObjects = (props = {}, ctx = {}, reservedKeys) => {
 // ------------------------------------------
 // omitting keys utility
 // ------------------------------------------
-export const omittedProps = (props = {}, reservedKeys) => {
-  return omit(props, reservedKeys)
-}
+export const omittedProps = (props = {}, reservedKeys) => omit(props, reservedKeys)
 
 // ------------------------------------------
 // extendCss utility
@@ -76,7 +74,7 @@ const mediaQuery = (viewport, baseSize, data) => {
 
     if (!unit || unit === 'px') {
       if (baseSize) edgeValue = `${value / baseSize}em`
-      else `${value}px`
+      else edgeValue = `${value}px`
     }
 
     return `
@@ -117,9 +115,8 @@ const calc = (attr, key, props) => {
   if (param && typeof param === 'object') {
     if (Object.keys(param).includes(key)) {
       return param[key]
-    } else {
-      return null
     }
+    return null
   }
 
   return param

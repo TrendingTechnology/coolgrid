@@ -10,13 +10,15 @@ import { COLUMN_RESERVED_KEYS as RESERVED_KEYS } from '../constants'
 import RowCtx from '../Row/context'
 import Styled from './styled'
 
-const Element = ({ children, tag, css, ...props }) => (
+const Element = ({
+  children, tag, css, ...props
+}) => (
   <RowCtx.Consumer>
     {({ colCss, colTag, ...ctx }) => {
       const gridConfiguration = createGridSettings({}, ctx, {})
 
       // delete gap, it can be passed only via context from Container or Row
-      delete props.gap
+      delete props.gap // eslint-disable-line no-param-reassign
 
       const breakpointOptions = calculateBreakpointOptions(
         gridConfiguration.breakpointKeys,
