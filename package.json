@@ -5,7 +5,16 @@
     "Vit Bokisch <vit@bokisch.cz>"
   ],
   "version": "0.4.1",
-  "description": "Ultra flexible and extensible grid system based on styled-components",
+  "description": "Ultra flexible and extensible grid system inspired by Bootstrap grid, based on styled-components",
+  "keywords": [
+    "grid",
+    "react",
+    "styled-components",
+    "bootstrap",
+    "flexible",
+    "extensible",
+    "coolgrid"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
