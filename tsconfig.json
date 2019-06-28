@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    // "strict": true,
+    "strict": true,
     "strictPropertyInitialization": false,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
@@ -32,12 +32,9 @@
     "dist",
     "build",
     "scripts",
-    "tools/*",
-    "examples/*",
-    "src/**/*.stories.*",
-    "src/**/stories.*",
+    "tools",
+    "examples",
     "src/**/*.test.*",
-    "src/**/__snapshots__/**/*",
-    "src_typescript"
+    "src/**/__snapshots__/**/*"
   ]
 }
