@@ -1,6 +1,6 @@
 {
   "name": "coolgrid",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "homepage": "https://vitus-labs.github.io/coolgrid/",
   "description": "Ultra flexible and extensible grid system inspired by Bootstrap grid, based on styled-components",
   "keywords": [
