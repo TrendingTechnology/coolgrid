@@ -7,16 +7,16 @@ import {
   extendCss
 } from '../utils'
 import { ROW_RESERVED_KEYS as RESERVED_KEYS } from '../constants'
-import { Ctx as ContainerCtx } from '../Container'
-import RowCtx from './context'
+import { Context as ContainerContext } from '../Container'
+import RowContext from './context'
 import Styled from './styled'
 
 const Element = ({
   theme, children, tag, css, ...props
 }) => (
-  <ContainerCtx.Consumer>
+  <ContainerContext.Consumer>
     {({ rowCss, rowTag, ...ctx }) => {
-      // output { breakpoints, baseSize, columns, breakpointKeys }
+      // output { breakpoints, rootSize, columns, breakpointKeys }
       const gridSettings = createGridSettings(props, ctx, theme)
 
       const breakpointOptions = calculateBreakpointOptions(
@@ -36,7 +36,7 @@ const Element = ({
           }}
           {...omittedProps(props, RESERVED_KEYS)}
         >
-          <RowCtx.Provider
+          <RowContext.Provider
             value={{
               ...gridSettings,
               ...mergeObjects(props, ctx, gridSettings.breakpointKeys),
@@ -44,11 +44,11 @@ const Element = ({
             }}
           >
             {children}
-          </RowCtx.Provider>
+          </RowContext.Provider>
         </Styled>
       )
     }}
-  </ContainerCtx.Consumer>
+  </ContainerContext.Consumer>
 )
 
 Element.displayName = 'vitus-labs/coolgrid/Row'

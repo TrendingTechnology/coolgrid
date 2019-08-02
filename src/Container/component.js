@@ -9,7 +9,7 @@ import Styled from './styled'
 const Element = ({
   theme, children, tag, css, ...props
 }) => {
-  // output { breakpoints, baseSize, columns, breakpointKeys }
+  // output { breakpoints, rootSize, columns, breakpointKeys }
   const gridSettings = createGridSettings(props, {}, theme)
 
   return (

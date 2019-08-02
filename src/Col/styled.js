@@ -2,30 +2,32 @@ import styled, { css } from 'styled-components'
 import { generateMediaQueries } from '../utils'
 
 const cssCreator = columns => ({ size, gap, padding }) => {
-  let result = ''
+  const t = {}
   const width = (size / columns) * 100
 
+  t.display = size === 0 ? 'none' : 'block'
+
   if (width) {
-    result += `
-      max-width: ${gap ? `calc(${width}% - ${gap}px)` : `${width}%`};
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: ${gap ? `calc(${width}% - ${gap}px)` : `${width}%`};
-    `
+    t.flex = 0
+    t.width = gap ? `calc(${width}% - ${gap}px)` : `${width}%`
   }
 
-  if (padding || padding === 0) {
-    result += `padding: ${padding}px;`
+  if (Number.isFinite(padding)) {
+    t.padding = padding
   }
-  if (gap || gap === 0) {
-    result += `
-      margin-left: ${gap / 2}px;
-      margin-right: ${gap / 2}px;
-      margin-top: ${gap}px;
-    `
+  if (Number.isFinite(gap)) {
+    t.gap = gap / 2
   }
 
-  return result
+  return css`
+    display: ${t.display};
+    max-width: ${t.width};
+    flex-grow: ${t.flex};
+    flex-shrink: ${t.flex};
+    flex-basis: ${t.width};
+    margin: ${t.gap}px;
+    padding: ${t.padding}px;
+  `
 }
 
 export default styled.div`
@@ -38,7 +40,5 @@ export default styled.div`
 
   ${({ theme: t }) => t.breakpoints && generateMediaQueries(t, cssCreator(t.columns))};
 
-  ${({ extendCss }) => css`
-    ${extendCss}
-  `};
+  ${({ extendCss }) => extendCss};
 `

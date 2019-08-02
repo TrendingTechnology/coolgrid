@@ -1,5 +1,5 @@
 export default {
-  baseSize: 16,
+  rootSize: 16,
   columns: 12,
   breakpoints: {
     xs: {

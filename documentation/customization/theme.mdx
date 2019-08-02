@@ -13,7 +13,7 @@ to implement it into your provider under `grid` key.
 
 ```jsx
 {
-  baseSize: 16,
+  rootSize: 16,
   columns: 12,
   breakpoints: {
     xs: {
@@ -48,8 +48,8 @@ You can change count of `columns`, or define your own `breakpoints`.
 
 For the smallest screen, you must set viewport to `0`. For the other viewport
 properties you can set `viewport` and `container` size in pixels (without unit).
-If you set `baseSize`, your defined sizes od viewports will be recalculated
-to `em` units. If you do not specify baseSize, it will fallback to pixels.
+If you set `rootSize`, your defined sizes od viewports will be recalculated
+to `em` units. If you do not specify rootSize, it will fallback to pixels.
 
 Below, you can see how to change count of columns:
 
@@ -84,7 +84,7 @@ Below, you can see customized breakpoints.
 ```
 
 You can also use units in `viewport` or `container` key. When value
-is a number it fallbacks to `px`, or when baseSize is set it will
+is a number it fallbacks to `px`, or when rootSize is set it will
 be calculated to `em`s, for example:
 
 ```jsx
@@ -197,7 +197,7 @@ const breakpoints = {
       theme={grid: {
         breakpoints,
         columns: 7,
-        baseSize: 16
+        rootSize: 16
       }}
     >
       <Row columns={7} breakpoints={breakpoints}>...</Row>

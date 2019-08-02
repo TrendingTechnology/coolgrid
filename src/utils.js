@@ -6,7 +6,7 @@ import { BASE_RESERVED_KEYS } from './constants'
 // create grid settings
 // ------------------------------------------
 export const createGridSettings = (props = {}, ctx = {}, theme = {}) => {
-  const gridTheme = get(theme, 'grid', {})
+  const gridTheme = get(theme, 'grid', {}) || theme
   const config = {
     ...pick(gridTheme, BASE_RESERVED_KEYS),
     ...pick(ctx, BASE_RESERVED_KEYS),
@@ -65,7 +65,7 @@ export const stripUnit = (value, unitReturn) => {
 // ------------------------------------------
 // media query css generator
 // ------------------------------------------
-const mediaQuery = (viewport, baseSize, data) => {
+const mediaQuery = (viewport, rootSize, data) => {
   if (!data) return ''
   const [value, unit] = stripUnit(viewport, true)
 
@@ -73,11 +73,11 @@ const mediaQuery = (viewport, baseSize, data) => {
     let edgeValue = viewport
 
     if (!unit || unit === 'px') {
-      if (baseSize) edgeValue = `${value / baseSize}em`
+      if (rootSize) edgeValue = `${value / rootSize}em`
       else edgeValue = `${value}px`
     }
 
-    return `
+    return css`
       @media only screen and (min-width: ${edgeValue}) {
         ${data}
       }
@@ -87,16 +87,16 @@ const mediaQuery = (viewport, baseSize, data) => {
   return data
 }
 
-export const generateMediaQueries = ({ breakpoints, baseSize }, css) => {
+export const generateMediaQueries = ({ breakpoints, rootSize }, styles) => {
   if (!breakpoints) throw Error('Breakpoints are missing!')
 
-  let result = ''
+  const result = []
   const entries = Object.entries(breakpoints)
 
   for (const [, dimensions] of entries) {
     const { viewport } = dimensions
     if (stripUnit(dimensions.viewport) >= 0) {
-      result += mediaQuery(viewport, baseSize, css(dimensions))
+      result.push(mediaQuery(viewport, rootSize, styles(dimensions)))
     }
   }
 
@@ -135,14 +135,14 @@ export const calculateBreakpointOptions = (keys, breakpoints, props, attrs) => {
     attrs.forEach(element => {
       const value = calc(element, key, props)
       // zero quick fix
-      if (value || value === 0) {
+      if (Number.isFinite(value)) {
         additionalProps[element] = value
       }
     })
 
     const helper = props[key]
 
-    if (helper) {
+    if (Number.isFinite(helper)) {
       if (typeof helper === 'object') {
         const tpm = Object.assign({}, additionalProps)
         additionalProps = { ...helper, ...tpm }
