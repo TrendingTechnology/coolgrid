@@ -1,6 +1,6 @@
 {
   "name": "coolgrid",
-  "version": "0.5.16",
+  "version": "0.6.0",
   "homepage": "https://vitus-labs.github.io/coolgrid/",
   "description": "Ultra flexible and extensible grid system inspired by Bootstrap grid, based on styled-components",
   "keywords": [
@@ -29,6 +29,7 @@
   "module": "dist/coolgrid.module.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "yarn build",
     "build": "rm -rf lib dist && babel src -d lib && cpr lib dist --delete-first && yarn rollup",
     "storybook": "start-storybook -p 6006 -c tools/storybook",
     "storybook:build": "build-storybook -c tools/storybook -o docs/",
