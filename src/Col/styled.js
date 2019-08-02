@@ -21,12 +21,24 @@ const cssCreator = columns => ({ size, gap, padding }) => {
 
   return css`
     display: ${t.display};
-    max-width: ${t.width};
-    flex-grow: ${t.flex};
-    flex-shrink: ${t.flex};
-    flex-basis: ${t.width};
-    margin: ${t.gap}px;
-    padding: ${t.padding}px;
+
+    ${t.width
+      && css`
+        max-width: ${t.width};
+        flex-grow: ${t.flex};
+        flex-shrink: ${t.flex};
+        flex-basis: ${t.width};
+      `};
+
+    ${Number.isFinite(gap)
+      && css`
+        margin: ${t.gap}px;
+      `};
+
+    ${Number.isFinite(padding)
+      && css`
+        padding: ${t.padding}px;
+      `};
   `
 }
 

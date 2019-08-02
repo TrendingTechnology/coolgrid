@@ -3,11 +3,15 @@ import { generateMediaQueries } from '../utils'
 
 const breakpointCss = ({ gap, gutter }) => {
   if (!gap) return ''
-  const vertical = gutter === 0 ? (-1 * gap) / 2 : gap / 2
-  const horizontal = gap / 2
+
+  let vertical = gap / 2
+  const horizontal = -1 * vertical
+
+  if (gutter === 0) vertical *= -1
+  else if (Number.isFinite(gutter)) vertical = gutter
 
   return css`
-    margin: ${vertical}px -${horizontal}px;
+    margin: ${vertical}px ${horizontal}px;
   `
 }
 
