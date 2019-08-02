@@ -32,21 +32,66 @@ npm install coolgrid --save
 
 Coolgrid depends on the following packages which need to be installed as well.
 
-|                   |         |
+| Package           | version |
 | ----------------- | ------- |
 | react             | >= 16.3 |
 | styled-components | >= 4    |
 
 ## ThemeProvider
 
-Don't forget to add coolstyle config into your `ThemeProvider` under `grid` key.
+Don't forget to add coolgrid theme config into your `ThemeProvider` under `grid` key.
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
-import { theme } from 'coolstyle
+import { theme } from 'coolgrid'
 
 // you can import default bootstrap theme settings or create yours.
-<ThemeProvider theme={{/* ...your theme */}}>
+
+<ThemeProvider
+  theme={{
+    /* ...your theme */
+    grid: theme
+  }}
+>
+  {/* ...your components */}
+</ThemeProvider>
+```
+
+Alternatively you can put it directly to the root of theme object:
+
+```jsx
+// you can import default bootstrap theme settings or create yours.
+
+<ThemeProvider
+  theme={{
+    /* ...your theme */
+    rootSize: 16, // is being used to convert viewport px to em units
+    columns: 12, // default bootstrap column grid example
+    breakpoints: {
+      // default bootstrap configuration example
+      xs: {
+        viewport: 0,
+        container: 0
+      },
+      sm: {
+        viewport: 576,
+        container: 540
+      },
+      md: {
+        viewport: 768,
+        container: 720
+      },
+      lg: {
+        viewport: 992,
+        container: 960
+      },
+      xl: {
+        viewport: 1200,
+        container: 1140
+      }
+    }
+  }}
+>
   {/* ...your components */}
 </ThemeProvider>
 ```

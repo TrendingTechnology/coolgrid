@@ -13,7 +13,7 @@ Use default grid settings by importing it to styled-components
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
-import { Container, Row, Col, theme } from 'coolstyle
+import { Container, Row, Col, theme } from 'coolgrid'
 
 <ThemeProvider theme={{ grid: theme }}>
   <Container>
@@ -34,7 +34,7 @@ how you can achieve this.
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
-import { theme } from 'coolstyle
+import { theme } from 'coolgrid'
 
 <ThemeProvider theme={{ grid: theme }}>
   {/* ...your components */}
@@ -45,7 +45,7 @@ you can also directly overrides grid settings in your Row components
 
 ```jsx
 import { ThemeProvider } from 'styled-components'
-import { Row, theme } from 'coolstyle
+import { Row, theme } from 'coolgrid'
 
 <ThemeProvider theme={{ grid: theme }}>
   <Row breakpoints={/* object */} columns={7}>
