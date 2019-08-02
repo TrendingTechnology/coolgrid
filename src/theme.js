@@ -11,7 +11,7 @@ export default {
       container: 540
     },
     md: {
-      viewport: 778,
+      viewport: 768,
       container: 720
     },
     lg: {
